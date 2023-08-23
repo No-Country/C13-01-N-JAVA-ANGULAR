@@ -11,4 +11,4 @@ services:
       MYSQL_ROOT_PASSWORD: 123456789
       MYSQL_DATABASE: doctime-db
     ports:
-      - 3306:3306
+      - 4000:3306
