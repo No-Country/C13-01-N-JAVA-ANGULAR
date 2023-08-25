@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { PatientProfileRoutingModule } from './patient-profile-routing.module';
 import { AppointmentsComponent } from './components/appointments/appointments.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 @NgModule({
-  declarations: [AppointmentsComponent],
+  declarations: [AppointmentsComponent, SettingsComponent],
   imports: [CommonModule, PatientProfileRoutingModule],
 })
 export class PatientProfileModule {}
