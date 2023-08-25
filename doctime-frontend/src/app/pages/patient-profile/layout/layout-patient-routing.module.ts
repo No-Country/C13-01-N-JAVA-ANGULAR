@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutPatientComponent } from './layout-patient.component';
 import { AppointmentsComponent } from '../components/appointments/appointments.component';
 import { SettingsComponent } from '../components/settings/settings.component';
+import { SeguridadComponent } from '../components/seguridad/seguridad.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'appointments', pathMatch: 'full' },
       { path: 'settings', component: SettingsComponent },
       { path: 'appointments', component: AppointmentsComponent },
+      { path: 'security', component: SeguridadComponent },
       // TODO: add routes here
       { path: '**', redirectTo: 'settings' },
     ],
