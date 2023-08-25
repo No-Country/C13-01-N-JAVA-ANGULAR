@@ -1,7 +1,7 @@
 package com.doctime.service;
 
-import com.doctime.models.UserEntity;
-import com.doctime.repository.UserRepository;
+import com.doctime.models.pacient.PacientEntity;
+import com.doctime.repository.PacientRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,22 +19,22 @@ import java.util.stream.Collectors;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
         @Autowired
-        private UserRepository userRepository;
+        private PacientRepository pacientRepository;
 
         @Override
         public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-                UserEntity userEntity = userRepository.findByUsername(username)
+                PacientEntity pacientEntity = pacientRepository.findByUsername(username)
                                 .orElseThrow(() -> new UsernameNotFoundException(
                                                 "El usuario " + username + " no existe."));
 
-                Collection<? extends GrantedAuthority> authorities = userEntity.getRoles()
+                Collection<? extends GrantedAuthority> authorities = pacientEntity.getRoles()
                                 .stream()
                                 .map(role -> new SimpleGrantedAuthority("ROLE_".concat(role.getName().name())))
                                 .collect(Collectors.toSet());
 
-                return new User(userEntity.getUsername(),
-                                userEntity.getPassword(),
+                return new User(pacientEntity.getUsername(),
+                                pacientEntity.getPassword(),
                                 true,
                                 true,
                                 true,

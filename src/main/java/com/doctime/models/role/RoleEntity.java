@@ -1,4 +1,4 @@
-package com.doctime.models;
+package com.doctime.models.role;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

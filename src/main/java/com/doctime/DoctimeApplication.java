@@ -2,10 +2,10 @@ package com.doctime;
 
 import java.util.Set;
 
-import com.doctime.models.ERole;
-import com.doctime.models.RoleEntity;
-import com.doctime.models.UserEntity;
-import com.doctime.repository.UserRepository;
+import com.doctime.models.pacient.PacientEntity;
+import com.doctime.models.role.ERole;
+import com.doctime.models.role.RoleEntity;
+import com.doctime.repository.PacientRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -25,13 +25,13 @@ public class DoctimeApplication {
 	PasswordEncoder passwordEncoder;
 
 	@Autowired
-	UserRepository userRepository;
+	PacientRepository pacientRepository;
 
 	@Bean
 	CommandLineRunner init() {
 		return args -> {
 
-			UserEntity userEntity = UserEntity.builder()
+			PacientEntity userEntity = PacientEntity.builder()
 					.email("admin@mail.com")
 					.username("admin")
 					.password(passwordEncoder.encode("admin"))
@@ -40,27 +40,27 @@ public class DoctimeApplication {
 							.build()))
 					.build();
 
-			UserEntity userEntity2 = UserEntity.builder()
-					.email("user@mail.com")
-					.username("user")
-					.password(passwordEncoder.encode("user"))
+			PacientEntity userEntity2 = PacientEntity.builder()
+					.email("pacient@mail.com")
+					.username("pacient")
+					.password(passwordEncoder.encode("pacient"))
 					.roles(Set.of(RoleEntity.builder()
-							.name(ERole.valueOf(ERole.USER.name()))
+							.name(ERole.valueOf(ERole.PACIENT.name()))
 							.build()))
 					.build();
 
-			UserEntity userEntity3 = UserEntity.builder()
-					.email("invited@mail.com")
-					.username("invited")
-					.password(passwordEncoder.encode("invited"))
+			PacientEntity userEntity3 = PacientEntity.builder()
+					.email("doctor@mail.com")
+					.username("doctor")
+					.password(passwordEncoder.encode("doctor"))
 					.roles(Set.of(RoleEntity.builder()
-							.name(ERole.valueOf(ERole.INVITED.name()))
+							.name(ERole.valueOf(ERole.DOCTOR.name()))
 							.build()))
 					.build();
 
-			userRepository.save(userEntity);
-			userRepository.save(userEntity2);
-			userRepository.save(userEntity3);
+			pacientRepository.save(userEntity);
+			pacientRepository.save(userEntity2);
+			pacientRepository.save(userEntity3);
 		};
 	}
 }
