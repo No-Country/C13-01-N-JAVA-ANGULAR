@@ -4,13 +4,14 @@ import java.sql.Date;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public record DataCreatePatient(
 
  Long id,
     String name,
     String last_name,
-    @NotBlank
+    @NotNull
     Gender gender,
     String phone,
     String imagenUrl,
