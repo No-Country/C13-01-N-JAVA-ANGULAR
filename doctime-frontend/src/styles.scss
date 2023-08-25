@@ -18,3 +18,105 @@ h6 {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
 }
+
+.btn {
+  padding: 0.6rem 1.5rem;
+  border-radius: 1.5rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+
+  &.btn-primary {
+    background-color: #2d9cdb;
+    color: #fff;
+
+    &:hover {
+      background-color: #1a7cb5;
+      color: #fff;
+    }
+  }
+
+  &.btn-secondary {
+    background-color: #fff;
+    color: #2d9cdb;
+    border: 1px solid #2d9cdb;
+
+    &:hover {
+      background-color: #2d9cdb;
+      color: #fff;
+    }
+  }
+
+  &.btn-danger {
+    background-color: #f83c7b;
+    color: #fff;
+
+    &:hover {
+      background-color: #f83c7b;
+      color: #fff;
+    }
+  }
+
+  &.btn-success {
+    background-color: #27ae60;
+    color: #fff;
+
+    &:hover {
+      background-color: #27ae60;
+      color: #fff;
+    }
+  }
+
+  &.btn-warning {
+    background-color: #f2994a;
+    color: #fff;
+
+    &:hover {
+      background-color: #f2994a;
+      color: #fff;
+    }
+  }
+
+  &.btn-info {
+    background-color: #2d9cdb;
+    color: #fff;
+
+    &:hover {
+      background-color: #2d9cdb;
+      color: #fff;
+    }
+  }
+
+  &.btn-light {
+    background-color: #fff;
+    color: #2d9cdb;
+    border: 1px solid #2d9cdb;
+
+    &:hover {
+      background-color: #2d9cdb;
+      color: #fff;
+    }
+  }
+
+  &.btn-dark {
+    background-color: #2d9cdb;
+    color: #fff;
+
+    &:hover {
+      background-color: #2d9cdb;
+      color: #fff;
+    }
+  }
+
+  &.btn-link {
+    background-color: transparent;
+    color: #2d9cdb;
+    border: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

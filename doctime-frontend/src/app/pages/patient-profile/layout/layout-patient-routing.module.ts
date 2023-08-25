@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutPatientComponent } from './layout-patient.component';
+import { AppointmentsComponent } from '../components/appointments/appointments.component';
 
 const routes: Routes = [
   {
     path: '',
     component: LayoutPatientComponent,
     children: [
-      { path: '', redirectTo: 'appoiment', pathMatch: 'full' },
+      { path: '', redirectTo: 'appointment', pathMatch: 'full' },
+      { path: 'appointment', component: AppointmentsComponent },
       // TODO: add routes here
-      { path: '**', redirectTo: 'appoiment' },
+      { path: '**', redirectTo: 'appointment' },
     ],
   },
 ];
