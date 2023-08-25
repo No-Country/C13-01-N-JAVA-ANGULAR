@@ -7,13 +7,13 @@ const routes: Routes = [
     pathMatch: 'prefix',
     children: [
       {
-        path: 'settings',
+        path: 'patient',
         loadChildren: () =>
           import('./layout/layout-patient.module').then(
             (m) => m.LayoutPatientModule
           ),
       },
-      { path: '**', redirectTo: 'settings' },
+      { path: '**', redirectTo: 'patient' },
     ],
   },
 ];

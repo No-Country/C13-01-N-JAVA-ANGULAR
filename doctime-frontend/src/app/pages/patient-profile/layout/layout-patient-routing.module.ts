@@ -9,11 +9,11 @@ const routes: Routes = [
     path: '',
     component: LayoutPatientComponent,
     children: [
-      { path: '', redirectTo: 'appointment', pathMatch: 'full' },
+      { path: '', redirectTo: 'appointments', pathMatch: 'full' },
       { path: 'settings', component: SettingsComponent },
-      { path: 'appointment', component: AppointmentsComponent },
+      { path: 'appointments', component: AppointmentsComponent },
       // TODO: add routes here
-      { path: '**', redirectTo: 'appointment' },
+      { path: '**', redirectTo: 'settings' },
     ],
   },
 ];
