@@ -1,4 +1,4 @@
-package com.doctime.models.user;
+package com.doctime.model.user;
 
 
 import jakarta.persistence.Entity;
