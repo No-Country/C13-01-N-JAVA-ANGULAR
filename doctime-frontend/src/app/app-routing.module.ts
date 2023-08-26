@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'profile', pathMatch: 'full' },
+  { path: '', redirectTo: 'register', pathMatch: 'full' },
   {
     path: 'profile',
     loadChildren: () =>
@@ -11,9 +10,12 @@ const routes: Routes = [
         (m) => m.PatientProfileModule
       ),
   },
-  { path: 'register', component: RegisterComponent },
-
-  { path: '**', redirectTo: 'profile' },
+  {
+    path: 'register',
+    loadChildren: () =>
+      import('./pages/register/register.module').then((m) => m.RegisterModule),
+  },
+  { path: '**', redirectTo: 'register' },
 ];
 
 @NgModule({
