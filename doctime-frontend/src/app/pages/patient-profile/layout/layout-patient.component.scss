@@ -1,36 +1,57 @@
 .layout-container {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   background: #f6f6f6;
-  padding: 0 2rem 2rem 2rem;
+  padding-bottom: 5rem;
 
-  .title {
+  .content {
     width: 100%;
+    max-width: 1216px;
+    margin: 0 auto;
+  }
 
-    h2 {
-      height: 100%;
-      font-size: 1.5rem;
-      padding: 1rem 0;
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 0;
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .title {
+      p {
+        color: var(--color-text-attenuate);
+        font-weight: 500;
+      }
     }
   }
 
-  .content {
+  .body-container {
     display: flex;
-    flex-direction: row;
-    flex: 1;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #ffffff;
-    padding: 1.2rem;
+    gap: 1rem;
+
+    .layout {
+      background: #fff;
+      border-radius: 0.625rem;
+      flex: 1;
+      padding: 2.5rem 2rem 2.5rem;
+    }
 
     .layout-sidebar {
-      min-width: 200px;
-      padding: 0.5rem 0 0 0;
+      max-width: 250px;
+      padding-top: 3rem;
+      padding-left: 1.5rem;
+
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 2rem;
 
       .nav-container {
         display: flex;
@@ -42,23 +63,6 @@
           display: flex;
           flex-direction: column;
           gap: 1.8rem;
-
-          li {
-            font-weight: 500;
-
-            a {
-              cursor: pointer;
-              color: #818ca1;
-              text-decoration: none;
-              padding: 0.8rem 1rem;
-              border-radius: 2.5rem;
-
-              &:hover {
-                color: #0551fe;
-                background: #e9f0ff;
-              }
-            }
-          }
         }
       }
 
@@ -66,25 +70,12 @@
         button.danger {
           padding: 0.8rem 1rem;
           border-radius: 2.5rem;
-          outline: none;
-          border: none;
-          background: transparent;
-          color: #ff4d4f;
-          font-weight: 500;
-          font-size: 1rem;
-          cursor: pointer;
 
           &:hover {
-            transition-duration: 0.2s;
             background: #ff909050;
           }
         }
       }
-    }
-
-    .layout-body {
-      width: 100%;
-      border-left: 1px solid rgba(129, 140, 162, 0.25);
     }
   }
 }
