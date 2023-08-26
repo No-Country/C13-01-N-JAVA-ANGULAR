@@ -1,5 +1,38 @@
 <div class="login-container">
   <div class="login-form">
+    <div class="login-form-content">
+      <div class="logo">
+        <img src="../../../../assets/images/logo.svg" alt="logo" />
+        <h1>DocTime</h1>
+      </div>
+      <form>
+        <div class="form-group">
+          <label for="email">Correo Electronico</label>
+          <input type="email" id="email" name="email" />
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" name="password" />
+        </div>
+        <button class="btn-login" (click)="login()">Iniciar Sesión</button>
+        <div class="links">
+          <a href="#">¿Olvidaste tu contraseña?</a>
+          <a href="#">Registrarse</a>
+        </div>
+      </form>
+    </div>
+    <div class="login-form-img">
+      <img
+        title="Bienvenid@ a DocTime"
+        src="../../../../assets/images/panel-login.svg"
+        alt="panel login"
+      />
+    </div>
+  </div>
+</div>
+
+<!-- <div class="login-container">
+  <div class="login-form">
     <div class="logo">
       <img src="../../../../assets/images/logo.svg" alt="logo" />
       <h1>DocTime</h1>
@@ -20,4 +53,4 @@
       </div>
     </form>
   </div>
-</div>
+</div> -->
