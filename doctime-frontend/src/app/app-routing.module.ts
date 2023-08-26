@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  //{ path: '', redirectTo: 'profile', pathMatch: 'full' },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   {
     path: 'login',
@@ -16,7 +15,7 @@ const routes: Routes = [
         (m) => m.PatientProfileModule
       ),
   },
-  { path: '**', redirectTo: 'profile' },
+  { path: '**', redirectTo: 'login' },
 ];
 
 @NgModule({

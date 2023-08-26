@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 export class LayoutLoginComponent {
   email = '';
   password = '';
+
+  login() {
+    console.log(this.email, this.password);
+  }
 }

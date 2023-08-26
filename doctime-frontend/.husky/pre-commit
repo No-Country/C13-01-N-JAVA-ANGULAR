@@ -4,5 +4,5 @@
 cd doctime-frontend
 #npm run test:headless
 #npm run lint
-npm run prettier
+#npm run prettier
 npx lint-staged
