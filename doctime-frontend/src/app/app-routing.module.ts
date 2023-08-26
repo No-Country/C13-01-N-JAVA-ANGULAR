@@ -2,7 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'profile', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./pages/login/login.module').then((m) => m.LoginModule),
+  },
   {
     path: 'profile',
     loadChildren: () =>
@@ -10,7 +15,7 @@ const routes: Routes = [
         (m) => m.PatientProfileModule
       ),
   },
-  { path: '**', redirectTo: 'profile' },
+  { path: '**', redirectTo: 'login' },
 ];
 
 @NgModule({
