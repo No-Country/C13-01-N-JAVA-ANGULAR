@@ -41,7 +41,6 @@ public class SecurityConfig {
         return httpSecurity
                 .csrf(config -> config.disable())
                 .authorizeHttpRequests(auth -> {
-                    auth.requestMatchers("/patient/testFree").permitAll();
                     auth.requestMatchers("/patient/register").permitAll();
                     auth.anyRequest().authenticated();
                 })

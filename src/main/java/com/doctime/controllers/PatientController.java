@@ -52,9 +52,4 @@ public class PatientController {
     public String testPatient() {
         return "Hola, has accedito con rol de PATIENT";
     }
-
-    @GetMapping("/testFree")
-    public String testFreePatient() {
-        return "Hola, has accedito con rol de PATIENT FREE";
-    }
 }
