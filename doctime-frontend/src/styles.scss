@@ -17,4 +17,125 @@ h6 {
   padding: 0;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
+  color: var(--color-text);
+}
+
+.btn {
+  padding: 0.75rem 1.25rem;
+  border-radius: 1.25rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+
+  &:hover {
+    transition-duration: 0.2s;
+  }
+
+  &.btn-sidebar {
+    cursor: pointer;
+    color: #818ca1;
+    text-decoration: none;
+    padding: 0.8rem 1rem;
+    border-radius: 3.125rem;
+    font-weight: 500;
+
+    &:hover {
+      color: #0551fe;
+      background: #e9f0ff;
+    }
+  }
+
+  &.btn-primary {
+    background-color: #49c2f2;
+    color: var(--button-color-text);
+
+    &:hover {
+      background-color: #1a7cb5;
+      color: var(--button-color-text);
+    }
+  }
+
+  &.btn-secondary {
+    background-color: var(--button-color-text);
+    color: #2d9cdb;
+    border: 1px solid #2d9cdb;
+
+    &:hover {
+      background-color: #2d9cdb;
+      color: var(--button-color-text);
+    }
+  }
+
+  &.btn-danger {
+    background: transparent;
+    color: #ff4d4f;
+
+    &:hover {
+      background: #ff909050;
+    }
+  }
+
+  &.btn-success {
+    background-color: #27ae60;
+    color: var(--button-color-text);
+
+    &:hover {
+      background-color: #27ae60;
+      color: var(--button-color-text);
+    }
+  }
+
+  &.btn-warning {
+    background-color: #f2994a;
+    color: var(--button-color-text);
+
+    &:hover {
+      background-color: #f2994a;
+      color: var(--button-color-text);
+    }
+  }
+
+  &.btn-info {
+    background-color: #2d9cdb;
+    color: var(--button-color-text);
+
+    &:hover {
+      background-color: #2d9cdb;
+      color: var(--button-color-text);
+    }
+  }
+
+  &.btn-light {
+    background-color: var(--button-color-text);
+    color: #2d9cdb;
+    border: 1px solid #2d9cdb;
+
+    &:hover {
+      background-color: #2d9cdb;
+      color: var(--button-color-text);
+    }
+  }
+
+  &.btn-dark {
+    background-color: #2d9cdb;
+    color: var(--button-color-text);
+
+    &:hover {
+      background-color: #2d9cdb;
+      color: var(--button-color-text);
+    }
+  }
+
+  &.btn-link {
+    background-color: transparent;
+    color: #2d9cdb;
+    border: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
