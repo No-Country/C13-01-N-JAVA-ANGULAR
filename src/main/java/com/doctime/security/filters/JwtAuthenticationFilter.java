@@ -1,6 +1,6 @@
 package com.doctime.security.filters;
 
-import com.doctime.models.pacient.PacientEntity;
+import com.doctime.model.patient.PatientEntity;
 import com.doctime.security.jwt.JwtUtils;
 import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.databind.DatabindException;
@@ -33,11 +33,11 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     public Authentication attemptAuthentication(HttpServletRequest request,
             HttpServletResponse response) throws AuthenticationException {
 
-        PacientEntity userEntity = null;
+        PatientEntity userEntity = null;
         String username = "";
         String password = "";
         try {
-            userEntity = new ObjectMapper().readValue(request.getInputStream(), PacientEntity.class);
+            userEntity = new ObjectMapper().readValue(request.getInputStream(), PatientEntity.class);
             username = userEntity.getUsername();
             password = userEntity.getPassword();
         } catch (StreamReadException e) {

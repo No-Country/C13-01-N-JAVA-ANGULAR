@@ -1,4 +1,4 @@
-package com.doctime.models.pacient;
+package com.doctime.model.patient;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
-import com.doctime.models.role.RoleEntity;
+import com.doctime.model.role.RoleEntity;
 
 @Data
 @AllArgsConstructor
@@ -19,7 +19,7 @@ import com.doctime.models.role.RoleEntity;
 @Builder
 @Entity
 @Table(name = "tb_users")
-public class PacientEntity {
+public class PatientEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
