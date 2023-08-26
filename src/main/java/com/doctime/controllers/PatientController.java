@@ -49,7 +49,7 @@ public class PatientController {
 
     @GetMapping("/test")
     @PreAuthorize("hasRole('PATIENT')")
-    public String accessUser() {
+    public String testPatient() {
         return "Hola, has accedito con rol de PATIENT";
     }
 }
