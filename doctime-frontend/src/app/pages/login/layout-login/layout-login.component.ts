@@ -8,13 +8,4 @@ import { Component } from '@angular/core';
 export class LayoutLoginComponent {
   email = '';
   password = '';
-
-  login() {
-    // Aquí puedes implementar la lógica de autenticación
-    // por ejemplo, enviar los datos al servidor, etc.
-    // En caso de usuario no registrado, puedes mostrar una alerta.
-    // if (!usuarioRegistrado) {
-    //   alert('Usuario no registrado.');
-    // }
-  }
 }
