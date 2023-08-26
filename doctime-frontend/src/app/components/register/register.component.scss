@@ -1,0 +1,104 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  max-width: 100%;
+}
+
+h6 {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.form-user {
+  width: 60%;
+}
+
+.form-img {
+  width: 1020px;
+  height: 840px;
+  border-radius: 25px 25px 25px 25px;
+  margin-right: 30px;
+  margin-top: 40px;
+
+  border-color: #305766;
+  border-style: hidden;
+  background: #49c2f2;
+}
+
+.form-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 120px;
+  color: black;
+  opacity: 100%;
+  font-size: 30px;
+}
+form {
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
+
+  color: #305766;
+  font-weight: 400;
+  text-align: center;
+  padding: 5px;
+  width: auto;
+  height: auto;
+}
+
+/* #user #email #password {
+  width: 80%;
+  height: 140px;
+  border-radius: 5px;
+  border: 1px solid #305766;
+  padding: 5px;
+  margin-bottom: 5px;
+  color: #49c2f2;
+  font-weight: 400;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
+
+} */
+
+#checkbox {
+  width: 20%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #305766;
+  padding: 5px;
+  margin-bottom: 5px;
+  color: #49c2f2;
+  font-weight: 400;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+input {
+  width: 380px;
+  height: 20px;
+}
+button {
+  color: #050505;
+  font-weight: 400;
+  text-align: center;
+  background: #49c2f2;
+  border-radius: 10px;
+  width: 380px;
+  height: 60px;
+  font-size: large;
+  cursor: pointer;
+}
+.form-control {
+  margin: 20px;
+  padding-top: 10px;
+  padding-left: 15px;
+  width: 380px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 10px 10px 10px 10px;
+  opacity: 80%;
+}

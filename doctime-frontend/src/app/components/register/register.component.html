@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="form-user">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <h1>REGISTRATE</h1>
+      <div class="user">
+        <h4>Ingresa usuario</h4>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="name"
+          name="required"
+          placeholder="Nombre"
+        />
+      </div>
+      <div class="email">
+        <h4>Ingresa email</h4>
+        <input
+          type="email"
+          class="form-control"
+          formControlName="email"
+          name="required"
+          placeholder="Correo"
+        />
+      </div>
+      <div class="password">
+        <h4>Ingresa contraseña</h4>
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password"
+          name="required"
+          placeholder="Contraseña"
+        />
+      </div>
+      <div class="password">
+        <h4>Confirma contraseña</h4>
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password2"
+          name="required"
+          placeholder="Confirma tu contraseña"
+        />
+      </div>
+      <div class="check">
+        <input type="checkbox" name="required" id="checkbox" />
+        <label for="checkbox">Acepto los términos y condiciones</label>
+      </div>
+      <span></span>
+      <span></span>
+      <span></span>
+      <br />
+      <br />
+
+      <button type="submit">REGISTRARSE</button>
+    </form>
+  </div>
+  <div class="form-img">
+    <div class="form-text">
+      <h5>Gestiona tus citas médicas de forma sencilla</h5>
+    </div>
+  </div>
+</div>

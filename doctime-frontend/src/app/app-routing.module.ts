@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'profile', pathMatch: 'full' },
@@ -10,6 +11,8 @@ const routes: Routes = [
         (m) => m.PatientProfileModule
       ),
   },
+  { path: 'register', component: RegisterComponent },
+
   { path: '**', redirectTo: 'profile' },
 ];
 
