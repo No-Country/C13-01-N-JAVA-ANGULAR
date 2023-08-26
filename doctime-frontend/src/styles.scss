@@ -5,6 +5,19 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+  list-style: none;
+}
+
+:root {
+  --color-text: #333;
+  --button-color-text: #fff;
+  --color-text-attenuate: #818ca1;
+  --color-text-attenuate-2: #bdc4ce;
+  --a-primary: #49c2f2;
+  --b-secondary: #b2d7e6;
+  --c-aa: #68aeca;
+  --d-aa: #305766;
+  --e-aa: #faf9fa;
 }
 
 h1,
