@@ -24,16 +24,16 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         @Override
         public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-                PatientEntity patientEntity = patientRepository.findByUsername(username)
+                PatientEntity patientEntity = patientRepository.findByEmail(username)
                                 .orElseThrow(() -> new UsernameNotFoundException(
-                                                "El usuario " + username + " no existe."));
+                                                "El email " + username + " no existe."));
 
                 Collection<? extends GrantedAuthority> authorities = patientEntity.getRoles()
                                 .stream()
                                 .map(role -> new SimpleGrantedAuthority("ROLE_".concat(role.getName().name())))
                                 .collect(Collectors.toSet());
 
-                return new User(patientEntity.getUsername(),
+                return new User(patientEntity.getEmail(),
                                 patientEntity.getPassword(),
                                 true,
                                 true,

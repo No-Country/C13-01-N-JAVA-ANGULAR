@@ -33,13 +33,13 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     public Authentication attemptAuthentication(HttpServletRequest request,
             HttpServletResponse response) throws AuthenticationException {
 
-        PatientEntity userEntity = null;
-        String username = "";
+        PatientEntity patientEntity = null;
+        String email = "";
         String password = "";
         try {
-            userEntity = new ObjectMapper().readValue(request.getInputStream(), PatientEntity.class);
-            username = userEntity.getUsername();
-            password = userEntity.getPassword();
+            patientEntity = new ObjectMapper().readValue(request.getInputStream(), PatientEntity.class);
+            email = patientEntity.getEmail();
+            password = patientEntity.getPassword();
         } catch (StreamReadException e) {
             throw new RuntimeException(e);
         } catch (DatabindException e) {
@@ -48,7 +48,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
             throw new RuntimeException(e);
         }
 
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username,
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(email,
                 password);
 
         return getAuthenticationManager().authenticate(authenticationToken);
@@ -68,7 +68,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         Map<String, Object> httpResponse = new HashMap<>();
         httpResponse.put("token", token);
         httpResponse.put("Message", "Autenticacion Correcta");
-        httpResponse.put("Username", user.getUsername());
+        httpResponse.put("email", user.getUsername());
 
         response.getWriter().write(new ObjectMapper().writeValueAsString(httpResponse));
         response.setStatus(HttpStatus.OK.value());

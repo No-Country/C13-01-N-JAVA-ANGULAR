@@ -11,8 +11,8 @@ import java.util.Optional;
 @Repository
 public interface PatientRepository extends CrudRepository<PatientEntity, Long> {
 
-    Optional<PatientEntity> findByUsername(String username);
+    Optional<PatientEntity> findByEmail(String email);
 
-    @Query("select u from PatientEntity u where u.username = ?1")
-    Optional<PatientEntity> getName(String username);
+    @Query("select u from PatientEntity u where u.email = ?1")
+    Optional<PatientEntity> getName(String email);
 }

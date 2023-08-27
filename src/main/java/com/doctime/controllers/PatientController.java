@@ -13,6 +13,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -29,16 +30,18 @@ public class PatientController {
     @PostMapping("/register")
     public ResponseEntity<?> registerPatient(@Valid @RequestBody PatientDTO patientDTO) {
 
-        Set<RoleEntity> roles = patientDTO.roles().stream()
-                .map(role -> RoleEntity.builder()
-                        .name(ERole.valueOf(role))
-                        .build())
-                .collect(Collectors.toSet());
+        Set<RoleEntity> roles = new HashSet<>();
+        RoleEntity rolPaciente = RoleEntity.builder().name(ERole.valueOf("PATIENT")).build();
+        roles.add(rolPaciente);
 
         PatientEntity patientEntity = PatientEntity.builder()
-                .username(patientDTO.username())
-                .password(passwordEncoder.encode(patientDTO.password()))
+                .name(patientDTO.name())
+                .last_name(patientDTO.last_name())
+                .gender(patientDTO.gender())
+                .birthday(patientDTO.birthday())
+                .phone(patientDTO.phone())
                 .email(patientDTO.email())
+                .password(passwordEncoder.encode(patientDTO.password()))
                 .roles(roles)
                 .build();
 
@@ -47,9 +50,9 @@ public class PatientController {
         return ResponseEntity.ok(patientEntity);
     }
 
-    @GetMapping("/test")
+    @GetMapping("/dashboard")
     @PreAuthorize("hasRole('PATIENT')")
     public String testPatient() {
-        return "Hola, has accedito con rol de PATIENT";
+        return "DASHBOARD DE PATIENT";
     }
 }
