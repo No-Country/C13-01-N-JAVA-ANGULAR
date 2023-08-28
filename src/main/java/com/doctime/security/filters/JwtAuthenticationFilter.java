@@ -1,6 +1,6 @@
 package com.doctime.security.filters;
 
-import com.doctime.model.patient.PatientEntity;
+import com.doctime.model.user.UserEntity;
 import com.doctime.security.jwt.JwtUtils;
 import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.databind.DatabindException;
@@ -33,12 +33,12 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     public Authentication attemptAuthentication(HttpServletRequest request,
             HttpServletResponse response) throws AuthenticationException {
 
-        PatientEntity userEntity = null;
-        String username = "";
+        UserEntity userEntity = null;
+        String email = "";
         String password = "";
         try {
-            userEntity = new ObjectMapper().readValue(request.getInputStream(), PatientEntity.class);
-            username = userEntity.getUsername();
+            userEntity = new ObjectMapper().readValue(request.getInputStream(), UserEntity.class);
+            email = userEntity.getEmail();
             password = userEntity.getPassword();
         } catch (StreamReadException e) {
             throw new RuntimeException(e);
@@ -48,7 +48,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
             throw new RuntimeException(e);
         }
 
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username,
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(email,
                 password);
 
         return getAuthenticationManager().authenticate(authenticationToken);
@@ -68,7 +68,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         Map<String, Object> httpResponse = new HashMap<>();
         httpResponse.put("token", token);
         httpResponse.put("Message", "Autenticacion Correcta");
-        httpResponse.put("Username", user.getUsername());
+        httpResponse.put("email", user.getUsername());
 
         response.getWriter().write(new ObjectMapper().writeValueAsString(httpResponse));
         response.setStatus(HttpStatus.OK.value());

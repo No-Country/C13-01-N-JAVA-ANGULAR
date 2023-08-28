@@ -41,7 +41,7 @@ public class SecurityConfig {
         return httpSecurity
                 .csrf(config -> config.disable())
                 .authorizeHttpRequests(auth -> {
-                    auth.requestMatchers("/patient/register").permitAll();
+                    auth.requestMatchers("/user/register").permitAll();
                     auth.anyRequest().authenticated();
                 })
                 .sessionManagement(session -> {
