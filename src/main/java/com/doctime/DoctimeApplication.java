@@ -1,13 +1,11 @@
 package com.doctime;
 
-import java.time.LocalDate;
 import java.util.Set;
 
-import com.doctime.model.gender.EGender;
-import com.doctime.model.patient.PatientEntity;
 import com.doctime.model.role.ERole;
 import com.doctime.model.role.RoleEntity;
-import com.doctime.repository.PatientRepository;
+import com.doctime.model.user.UserEntity;
+import com.doctime.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -27,24 +25,20 @@ public class DoctimeApplication {
 	PasswordEncoder passwordEncoder;
 
 	@Autowired
-	PatientRepository patientRepository;
+	UserRepository userRepository;
 
 	@Bean
 	CommandLineRunner init() {
 		return args -> {
 
-			PatientEntity patientEntity = PatientEntity.builder()
-					.name("Luis")
-					.last_name("Rodriguez")
-					.gender(EGender.valueOf(EGender.MALE.name()))
-					.birthday(LocalDate.parse("1998-08-04"))
+			UserEntity userEntity = UserEntity.builder()
 					.email("luis@mail.com")
 					.password(passwordEncoder.encode("luisluis"))
 					.roles(Set.of(RoleEntity.builder()
 							.name(ERole.valueOf(ERole.PATIENT.name()))
 							.build()))
 					.build();
-			patientRepository.save(patientEntity);
+			userRepository.save(userEntity);
 		};
 	}
 }
