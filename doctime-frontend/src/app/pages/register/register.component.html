@@ -2,16 +2,6 @@
   <div class="form-user">
     <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
       <h1>REGISTRATE</h1>
-      <div class="user">
-        <h4>Ingresa usuario</h4>
-        <input
-          type="text"
-          class="form-control"
-          formControlName="name"
-          name="required"
-          placeholder="Nombre"
-        />
-      </div>
       <div class="email">
         <h4>Ingresa email</h4>
         <input
@@ -21,6 +11,22 @@
           name="required"
           placeholder="Correo"
         />
+        <span
+          *ngIf="
+            myForm.controls['email'].getError('required') &&
+            myForm.controls['email'].touched
+          "
+          class="form-text"
+          >Campo Obligatorio
+        </span>
+        <span
+          *ngIf="
+            myForm.controls['email'].getError('email') &&
+            myForm.controls['email'].touched
+          "
+          class="form-text"
+          >Ingresa correo electronico valido</span
+        >
       </div>
       <div class="password">
         <h4>Ingresa contraseña</h4>
@@ -29,8 +35,24 @@
           class="form-control"
           formControlName="password"
           name="required"
-          placeholder="Contraseña"
+          placeholder="Contraseña alfanumerica"
         />
+        <span
+          *ngIf="
+            myForm.controls['password'].getError('required') &&
+            myForm.controls['password'].touched
+          "
+          class="form-text"
+          >Campo Obligatorio</span
+        >
+        <span
+          *ngIf="
+            myForm.controls['password'].getError('minlength') &&
+            myForm.controls['password'].touched
+          "
+          class="form-text"
+          >Contraseña alfanumerica requiere minimo 6 numeros</span
+        >
       </div>
       <div class="password">
         <h4>Confirma contraseña</h4>
@@ -39,8 +61,33 @@
           class="form-control"
           formControlName="password2"
           name="required"
-          placeholder="Confirma tu contraseña"
+          placeholder="Confirma tu contraseña alfanumerica"
         />
+        <span
+          *ngIf="
+            myForm.controls['password2'].getError('required') &&
+            myForm.controls['password2'].touched
+          "
+          class="form-text"
+          >Campo Obligatorio</span
+        >
+        <span
+          *ngIf="
+            myForm.controls['password'].valid &&
+            myForm.controls['password2'].valid &&
+            myForm.controls.password.value === myForm.controls.password2.value
+          "
+          class="form-text"
+        ></span>
+        <span
+          *ngIf="
+            myForm.controls['password'].valid &&
+            myForm.controls['password2'].valid &&
+            myForm.controls.password.value !== myForm.controls.password2.value
+          "
+          class="form-text"
+          >Contraseñas no coinciden</span
+        >
       </div>
       <div class="check">
         <input type="checkbox" name="required" id="checkbox" />
@@ -56,8 +103,53 @@
     </form>
   </div>
   <div class="form-img">
-    <div class="form-text">
-      <h5>Gestiona tus citas médicas de forma sencilla</h5>
+    <div class="form-text center">
+      <h4>Gestiona tus citas médicas de forma sencilla</h4>
+    </div>
+    <div class="photo">
+      <img
+        src="../../../assets/images/3727319.jpg"
+        alt="Una imagen"
+        width="520"
+        height="480"
+      />
+    </div>
+    <br />
+    <br />
+    <div class="row social-media">
+      <div class="row">
+        <div class="col-sm-4">
+          <a href="#">
+            <img
+              src="../../../assets/images/phone.svg"
+              width="48"
+              height="48"
+              alt="Telephone"
+            />
+          </a>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <a href="#">
+          <img
+            src="../../../assets/images/mail.svg"
+            width="48"
+            height="48"
+            alt="Email"
+          />
+        </a>
+      </div>
+      <div class="col-sm-4">
+        <a href="#">
+          <img
+            src="../../../assets/images/internet.svg"
+            width="48"
+            height="48"
+            alt="Web Page"
+          />
+        </a>
+      </div>
     </div>
   </div>
 </div>

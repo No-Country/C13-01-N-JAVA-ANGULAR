@@ -13,7 +13,6 @@ import {
 })
 export class RegisterComponent {
   public myForm = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
       Validators.required,
@@ -43,5 +42,8 @@ export class RegisterComponent {
 
   onSubmit() {
     this.myForm.markAllAsTouched();
+    console.log(this.myForm.value);
+
+    this.myForm.reset();
   }
 }
