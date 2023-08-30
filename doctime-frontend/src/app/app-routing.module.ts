@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: 'doctime', pathMatch: 'full' },
   {
     path: 'login',
     loadChildren: () =>
@@ -15,7 +15,12 @@ const routes: Routes = [
         (m) => m.PatientProfileModule
       ),
   },
-  { path: '**', redirectTo: 'login' },
+  {
+    path: 'doctime',
+    loadChildren: () =>
+      import('./layout/layout.module').then((m) => m.LayoutModule),
+  },
+  { path: '**', redirectTo: 'doctime' },
 ];
 
 @NgModule({
