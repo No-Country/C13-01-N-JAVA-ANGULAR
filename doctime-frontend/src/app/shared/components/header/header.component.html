@@ -1,0 +1,48 @@
+<header>
+  <div class="container-header">
+    <div class="logo">
+      <div class="logo-image">
+        <a href="/">
+          <img src="../../../../assets/images/logo-white.svg" alt="Logo" />
+        </a>
+      </div>
+      <div class="logo-title">
+        <a href="/">DocTime</a>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <a [routerLink]="['/doctime/home']" routerLinkActive="active">
+            Inicio
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/search/doctor']" routerLinkActive="active">
+            Doctores
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/doctime/specialty']" routerLinkActive="active">
+            Especialidades
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <ul>
+        <li>
+          <a [routerLink]="['/login']" routerLinkActive="active"
+            >Iniciar Sesión</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/register']" routerLinkActive="active"
+            >Registrarse</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
