@@ -1,6 +1,7 @@
 package com.doctime.model.patient;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 public record DataListPatient (
     Long id,
@@ -9,7 +10,7 @@ public record DataListPatient (
     String gender,
     String phone,
     String imagenUrl,
-    Date createdAt,
+    Date created_at,
     Date updatedAt,
     String dni
 )
@@ -22,7 +23,7 @@ public record DataListPatient (
         patient.getGender().toString(),
         patient.getPhone(),
         patient.getImagenUrl(),
-        patient.getCreatedAt(),
+        patient.getCreated_at(),
         patient.getUpdatedAt(),
         patient.getDni()
         );

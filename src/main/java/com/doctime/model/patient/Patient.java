@@ -1,6 +1,7 @@
 package com.doctime.model.patient;
 
-import java.sql.Date;
+import java.util.Date;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -29,7 +30,7 @@ public class Patient {
     private Gender gender;
     private String phone;
     private String imagenUrl;
-    private Date createdAt;
+    private Date created_at;
     private Date updatedAt;
     private String dni;
     
@@ -40,8 +41,7 @@ public class Patient {
         this.gender=dataCreatePatient.gender();
         this.phone=dataCreatePatient.phone();
         this.imagenUrl= dataCreatePatient.imagenUrl();
-        this.createdAt =dataCreatePatient.createdAt();
-        this.updatedAt=dataCreatePatient.updatedAt();
+        this.created_at= new Date(); 
         this.dni=dataCreatePatient.dni();    
     }
 
@@ -62,27 +62,10 @@ public class Patient {
         if(dataUpdatePatient.dni() !=null){
             this.last_name=dataUpdatePatient.dni();
         }
-        
 
-        /*
-         *  String last_name,
-    Gender gender,
-    String phone,
-    String dni
-         */
+        this.updatedAt=new Date();
+        
        
     }
-    
-    
-    /*last_patient varchar(100),
-date_birthday date,
-gender enum('Masculino', 'Femenino'),
-phone char(20),
-imageUrl varchar(100),
-createdAt date,
-updatedAt date,
-dni char(20),
-primary key(id_patient)
- */
     
 }
