@@ -1,41 +1,51 @@
 package com.doctime.model.user;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.Set;
 
-import com.doctime.model.patient.Gender;
+import com.doctime.model.gender.EGender;
+import com.doctime.model.role.RoleEntity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
+import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "tb_user")
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(of = "id")
 public class UserEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String name;
-    private String last_name;
-    private String email;
-    private String password;
-    @Enumerated(EnumType.STRING)
-    private Gender gender;
-    private String phone;
-    private String imagenUrl;
-    private Date created_at;
-    private Date updatedAt;
+    private Long id;
 
+    @Column(nullable = false)
+    private String email;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Column
+    private String name;
+
+    @Column
+    private String last_name;
+
+    @Column
+    private LocalDate birthday;
+
+    @Column
+    @Enumerated(EnumType.STRING)
+    private EGender gender;
+
+    @Column(unique = true)
+    private String dni;
+
+    @ManyToMany(fetch = FetchType.EAGER, targetEntity = RoleEntity.class, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "tb_user_roles", joinColumns = @JoinColumn(name = "id_user"), inverseJoinColumns = @JoinColumn(name = "id_role"))
+    private Set<RoleEntity> roles;
 }
