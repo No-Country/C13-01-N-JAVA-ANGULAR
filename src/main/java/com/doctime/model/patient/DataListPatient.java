@@ -1,35 +1,24 @@
 package com.doctime.model.patient;
 
 
-import java.util.Date;
+import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 
-public record DataListPatient (
-    Long id,
-    String name,
-    String last_name,
-    String gender,
-    String phone,
-    String imagenUrl,
-    Date created_at,
-    Date updatedAt,
-    String dni
-)
+import com.doctime.model.reservation.Reservation;
+
+
+
+public record DataListPatient(
+
+        Long id,
+        String dni,
+        int edad)
 
 {
-    public DataListPatient(Patient patient){
+    public DataListPatient(Patient patient) {
         this(patient.getId(),
-        patient.getName(),
-        patient.getLast_name(),
-        patient.getGender().toString(),
-        patient.getPhone(),
-        patient.getImagenUrl(),
-        patient.getCreated_at(),
-        patient.getUpdatedAt(),
-        patient.getDni()
-        );
-    
-    }
-    
-   
-}
+        patient.getDni(),
+        patient.getEdad());
 
+    }
+
+}

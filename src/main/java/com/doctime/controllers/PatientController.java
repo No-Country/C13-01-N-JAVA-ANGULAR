@@ -51,7 +51,6 @@ public class PatientController {
 
   }
  
-
   @PutMapping
   @Transactional
   public ResponseEntity updatedPatient(@RequestBody @Validated DataUpdatePatient dataUpdatePatient) {
@@ -60,10 +59,7 @@ public class PatientController {
 
      return ResponseEntity.ok( dataUpdatePatient);
    
-   
   }
-
-
 
   @DeleteMapping("/{id}")
   @Transactional
