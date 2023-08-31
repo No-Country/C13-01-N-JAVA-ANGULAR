@@ -1,0 +1,206 @@
+main {
+  width: 100vw;
+  height: 100%;
+  padding-bottom: 8rem;
+
+  .container {
+    width: 100vw;
+    height: 100%;
+    position: relative;
+
+    img.bg-hero {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      z-index: -1;
+    }
+
+    .hero {
+      padding: 6rem 0;
+      max-width: 1216px;
+      display: flex;
+      margin: 0 auto;
+      justify-content: space-between;
+      align-items: center;
+
+      .hero-left {
+        max-width: 550px;
+        color: var(--text-white);
+
+        h1 {
+          font-size: 3rem;
+          font-weight: 700;
+          line-height: 1.2;
+          margin-bottom: 1rem;
+          color: var(--text-white);
+        }
+
+        p {
+          font-size: 1.5rem;
+          font-weight: 400;
+          line-height: 1.5;
+          margin-bottom: 1rem;
+        }
+
+        .search {
+          display: flex;
+          gap: 0.8rem;
+
+          input {
+            width: 300px;
+            height: 50px;
+            background-color: var(--color-bg);
+            border-radius: 5px;
+            color: var(--color-text);
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            transition: all 0.2s ease-in-out;
+            padding-left: 0.4rem;
+            outline: none;
+          }
+        }
+      }
+
+      .hero-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .img-container {
+          width: 30rem;
+          height: 30rem;
+          border-radius: 50%;
+          overflow: hidden;
+          background: var(--color-secondary);
+
+          &::before {
+            content: '';
+            transform: scale(1.1);
+            width: 30rem;
+            height: 30rem;
+            background: var(--color-bg);
+            position: absolute;
+            z-index: -1;
+            border-radius: 50%;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+
+  .container-specialty {
+    padding: 5rem 1rem;
+
+    .carousel-specialties {
+      max-width: 1216px;
+      margin: 0 auto;
+    }
+  }
+
+  .container-cta {
+    padding: 3rem 1rem;
+
+    .cta {
+      max-width: 1216px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 8px;
+      padding: 4rem;
+      background: #4ac3f280;
+
+      .cta-left {
+        .img-container {
+          max-width: 500px;
+          overflow: hidden;
+          margin: 0;
+
+          img {
+            border-radius: 5px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+
+      .cta-right {
+        padding: 0 2rem;
+
+        .cta-right-content {
+          max-width: 600px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 1rem;
+          margin-bottom: 2rem;
+          color: var(--color-secondary);
+
+          h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+          }
+
+          p {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  .container-doctors {
+    padding: 5rem 1rem;
+
+    .title-doctors {
+      max-width: 1216px;
+      width: 100%;
+      margin: 0 auto;
+
+      h2 {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        color: var(--color-secondary);
+      }
+    }
+
+    .carousel-doctors {
+      max-width: 1216px;
+      margin: 0 auto;
+    }
+  }
+
+  .container-opinions {
+    padding: 5rem 1rem;
+
+    .title-opinions {
+      max-width: 1216px;
+      width: 100%;
+      margin: 0 auto;
+
+      h2 {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        color: var(--color-secondary);
+      }
+    }
+
+    .carousel-opinions {
+      max-width: 1216px;
+      margin: 0 auto;
+    }
+  }
+}
