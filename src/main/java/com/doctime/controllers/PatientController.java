@@ -50,7 +50,7 @@ public class PatientController {
     return new ResponseEntity<>(patientRepository.save(new Patient(dataCreatePatient)), HttpStatus.CREATED);
 
   }
- 
+ //mandar actualización de user mediante update paciente
   @PutMapping
   @Transactional
   public ResponseEntity updatedPatient(@RequestBody @Validated DataUpdatePatient dataUpdatePatient) {
