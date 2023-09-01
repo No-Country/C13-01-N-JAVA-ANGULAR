@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
+
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { NotifyService } from 'src/app/services/notify.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -24,7 +28,12 @@ export class RegisterComponent {
     ]),
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private notifySvc: NotifyService,
+    private toastr: ToastrService,
+    private router: Router
+  ) {}
 
   /* asyncmailValidator(control: FormControl) {
     return new Promise((resolve) => {
@@ -43,7 +52,20 @@ export class RegisterComponent {
   onSubmit() {
     this.myForm.markAllAsTouched();
     console.log(this.myForm.value);
-
+    if (this.myForm.valid) {
+      this.notifySvc.toastrSvc.success(
+        'Seras redirigido al login',
+        'Cuenta creada'
+      );
+      setTimeout(() => {
+        this.router.navigate(['/login']);
+      }, 5000);
+    } else if (!this.myForm.valid) {
+      this.notifySvc.toastrSvc.error(
+        'Verifica tus datos',
+        'Error al crear la cuenta'
+      );
+    }
     this.myForm.reset();
   }
 }
