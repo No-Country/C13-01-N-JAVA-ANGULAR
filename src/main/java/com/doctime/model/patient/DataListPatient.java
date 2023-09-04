@@ -1,9 +1,6 @@
 package com.doctime.model.patient;
 
 
-import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
-
-import com.doctime.model.reservation.Reservation;
 import com.doctime.model.user.UserEntity;
 
 

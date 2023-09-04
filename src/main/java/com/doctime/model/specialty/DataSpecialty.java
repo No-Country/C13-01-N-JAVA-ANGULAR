@@ -1,5 +1,6 @@
 package com.doctime.model.specialty;
 
-public class DataSpecialty {
-    
-}
+public record DataSpecialty(
+     String name
+) {
+} 
