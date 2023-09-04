@@ -1,0 +1,138 @@
+<section class="profile">
+  <div class="profile__header">
+    <h1 class="profile__header--title">Mi Perfil</h1>
+  </div>
+  <div class="info">
+    <div class="info__container">
+      <div class="info__content">
+        <div class="info__box">
+          <img
+            src="../../../../../assets/images/avatar/avatar.svg"
+            alt="doctor-profile"
+            class="info__box--img"
+          />
+          <div class="info__data">
+            <h2 class="info__data--title">Juan Perez Aguirre</h2>
+            <span class="info__data--text"
+              >Doctor especialista en Cardiología</span
+            >
+          </div>
+        </div>
+        <div class="rating">
+          <div class="rating__star">
+            <img
+              src="../../../../../assets/images/star-solid.svg"
+              alt="star-solid"
+            />
+            <img
+              src="../../../../../assets/images/star-solid.svg"
+              alt="star-solid"
+            />
+            <img
+              src="../../../../../assets/images/star-solid.svg"
+              alt="star-solid"
+            />
+            <img
+              src="../../../../../assets/images/star-solid.svg"
+              alt="star-solid"
+            />
+            <img
+              src="../../../../../assets/images/star-half-stroke-solid.svg"
+              alt="star-half-stroke-solid"
+            />
+          </div>
+          <div class="rating__info">
+            <span class="rating__info--text">4.5</span>
+            <span class="rating__info--text">/</span>
+            <span class="rating__info--text">5</span>
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="data">
+          <div class="data__header">
+            <h4 class="data__header--title">Datos Personales</h4>
+          </div>
+          <div class="data__content">
+            <div class="data__box">
+              <span class="data__box--label">Correo electronico :</span>
+              <span class="data__box--field">juanperezaguirre@gmail.com</span>
+            </div>
+            <div class="data__box">
+              <span class="data__box--label">Telefono Contacto :</span>
+              <span class="data__box--field">999 999 999</span>
+            </div>
+            <div class="data__box">
+              <span class="data__box--label">Dirección :</span>
+              <span class="data__box--field"
+                >Av. Los Olivos 123, Los Olivos, Lima.</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="profile__form">
+      <div class="profile__tabs">
+        <app-tabs></app-tabs>
+        <!-- <div class="profile__tabs--item">
+            <a href="#" class="profile__tabs--link">Información</a>
+          </div>
+          <div class="profile__tabs--item">
+            <a href="#" class="profile__tabs--link">Citas</a>
+          </div>
+          <div class="profile__tabs--item">
+            <a href="#" class="profile__tabs--link">Historial</a>
+          </div> -->
+      </div>
+      <div class="form">
+        <div class="form__header">
+          <h3 class="form__header--title">Datos Personales</h3>
+        </div>
+        <div class="form__wrapped">
+          <form>
+            <div class="box">
+              <div class="box__content">
+                <label for="nombre" class="box__content--label">Nombre :</label>
+                <input type="text" id="nombre" class="box__content--input" />
+              </div>
+              <div class="box__content">
+                <label for="apellidos" class="box__content--label"
+                  >Apellidos :</label
+                >
+                <input type="text" id="apellidos" class="box__content--input" />
+              </div>
+              <div class="box__content">
+                <label for="genero" class="box__content--label">Genero :</label>
+                <input type="text" id="genero" class="box__content--input" />
+              </div>
+              <div class="box__content">
+                <label for="dni" class="box__content--label">D.N.I :</label>
+                <input type="text" id="dni" class="box__content--input" />
+              </div>
+              <div class="box__content">
+                <label for="direccion" class="box__content--label"
+                  >Dirección :</label
+                >
+                <input type="text" id="direccion" class="box__content--input" />
+              </div>
+              <div class="box__content">
+                <label for="acerca" class="box__content--label"
+                  >Acerda de mi:
+                </label>
+                <textarea
+                  class="box__content--input box__content--textarea"
+                  id="acerca"
+                ></textarea>
+              </div>
+            </div>
+          </form>
+          <div class="form__ad">
+            <div class="form__ad--content">
+              <p>Advertasing</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

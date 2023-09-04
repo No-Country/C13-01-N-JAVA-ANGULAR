@@ -16,6 +16,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./pages/doctor-profile/doctor-profile.module').then(
+        (m) => m.DoctorProfileModule
+      ),
+  },
+  {
     path: 'doctime',
     loadChildren: () =>
       import('./layout/layout.module').then((m) => m.LayoutModule),
