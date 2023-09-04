@@ -9,8 +9,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import com.doctime.model.role.ERole;
+
 import java.security.Key;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Set;
 import java.util.function.Function;
 
 @Component
@@ -24,9 +28,11 @@ public class JwtUtils {
     private String timeExpiration;
 
     // Generar token de acceso
-    public String generateAccesToken(String email) {
+    public String generateAccesToken(String id, String email, Set<String> role) {
         return Jwts.builder()
-                .setSubject(email)
+                .setSubject(id)
+                .claim("email", email)
+                .claim("role", role)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + Long.parseLong(timeExpiration)))
                 .signWith(getSignatureKey(), SignatureAlgorithm.HS256)
@@ -49,7 +55,7 @@ public class JwtUtils {
     }
 
     // Obtener el email del token
-    public String getUsernameFromToken(String token) {
+    public String getIdFromToken(String token) {
         return getClaim(token, Claims::getSubject);
     }
 

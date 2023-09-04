@@ -1,5 +1,12 @@
 package com.doctime.controllers;
 
-public class PatientController {
+import org.springframework.http.ResponseEntity;
 
+public class PatientController {
+    // update
+    public ResponseEntity<?> updatePattient() {
+        return null;
+    }
+    // delete
+    // listReservation
 }

@@ -22,17 +22,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         private UserRepository userRepository;
 
         @Override
-        public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-                UserEntity userEntity = userRepository.findByEmail(email)
+                UserEntity userEntity = userRepository.findByEmail(username)
                                 .orElseThrow(() -> new UsernameNotFoundException(
-                                                "El email " + email + " no existe."));
-
+                                                "El Username " + username + " no existe."));
                 Collection<? extends GrantedAuthority> authorities = userEntity.getRoles()
                                 .stream()
                                 .map(role -> new SimpleGrantedAuthority("ROLE_".concat(role.getName().name())))
                                 .collect(Collectors.toSet());
-
                 return new User(userEntity.getEmail(),
                                 userEntity.getPassword(),
                                 true,

@@ -1,7 +1,4 @@
-package com.doctime.model.role;
-
-import java.util.HashSet;
-import java.util.Set;
+package com.doctime.model.doctor;
 
 import com.doctime.model.user.UserEntity;
 
@@ -16,16 +13,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "tb_roles")
-public class RoleEntity {
-
+@Table(name = "tb_doctor")
+public class DoctorEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    private ERole name;
+    @Column
+    private String address;
 
-    @OneToMany(mappedBy = "roleEntity")
-    private Set<UserEntity> userEntities;
+    @OneToOne
+    @JoinColumn(name = "user_id") // Nombre de la columna que actúa como clave foránea
+    private UserEntity userEntity;
 }
