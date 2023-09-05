@@ -1,9 +1,9 @@
 package com.doctime.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.doctime.model.patient.PatientEntity;
 
-public interface PatientRepository extends CrudRepository<PatientEntity, Long> {
+public interface PatientRepository extends JpaRepository<PatientEntity, Long> {
 
 }

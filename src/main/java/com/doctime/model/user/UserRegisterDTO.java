@@ -1,10 +1,7 @@
 package com.doctime.model.user;
 
-import java.util.Set;
-
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 public record UserRegisterDTO(
@@ -13,5 +10,5 @@ public record UserRegisterDTO(
 
                 @NotBlank(message = "PASSWORD cannot be blank") @Size(max = 80, min = 8, message = "PASSWORD must be between 8 and 50 characters") String password,
 
-                @NotEmpty(message = "ROL cannot be empty") Set<String> roles) {
+                @NotBlank(message = "ROLE cannot be empty") String role) {
 }

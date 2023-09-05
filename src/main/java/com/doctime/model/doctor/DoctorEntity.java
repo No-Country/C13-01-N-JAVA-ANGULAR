@@ -1,5 +1,7 @@
 package com.doctime.model.doctor;
 
+import java.time.LocalDateTime;
+
 import com.doctime.model.user.UserEntity;
 
 import jakarta.persistence.*;
@@ -8,21 +10,37 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 @Entity
 @Table(name = "tb_doctor")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class DoctorEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
+
+    @Temporal(TemporalType.TIMESTAMP) // Utiliza TIMESTAMP para fecha y hora
+    @Column(name = "fecha_creacion", updatable = false)
+    private LocalDateTime createdAt;
+
+    @Temporal(TemporalType.TIMESTAMP) // Utiliza TIMESTAMP para fecha y hora
+    @Column(name = "fecha_actualizacion")
+    private LocalDateTime updatedAt;
 
     @Column
-    private String address;
+    private String paymentTypes;
 
-    @OneToOne
-    @JoinColumn(name = "user_id") // Nombre de la columna que actúa como clave foránea
-    private UserEntity userEntity;
+    @Column
+    private double reputation;
+
+    @Column
+    private int totalRatings;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "id_user")
+    private UserEntity user;
+
 }

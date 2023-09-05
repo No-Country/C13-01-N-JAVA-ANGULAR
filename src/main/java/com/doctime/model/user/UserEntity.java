@@ -1,7 +1,6 @@
 package com.doctime.model.user;
 
 import java.time.LocalDate;
-import java.util.Set;
 
 import com.doctime.model.gender.EGender;
 import com.doctime.model.role.RoleEntity;
@@ -45,7 +44,7 @@ public class UserEntity {
     @Column(unique = true)
     private String dni;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.PERSIST, optional = false) // por defecto ya es EAGER
     @JoinColumn(name = "id_role")
-    private RoleEntity roleEntity;
+    private RoleEntity role;
 }

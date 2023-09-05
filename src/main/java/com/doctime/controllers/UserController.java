@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.doctime.model.user.UserRegisterDTO;
-import com.doctime.service.UserService;
+import com.doctime.model.user.UserResponseDTO;
+import com.doctime.service.DoctorService;
+import com.doctime.service.PatientService;
 
 import jakarta.validation.Valid;
 
@@ -20,21 +22,19 @@ import jakarta.validation.Valid;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    PatientService patientService;
+    @Autowired
+    DoctorService doctorService;
 
     @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@Valid @RequestBody UserRegisterDTO userRegisterDTO) {
-
-        if (userRegisterDTO.roles().size() > 1 || userRegisterDTO.roles().size() == 0) {
-            return new ResponseEntity<>("Error en los roles", HttpStatus.BAD_REQUEST);
+    public ResponseEntity<UserResponseDTO> registerUser(@Valid @RequestBody UserRegisterDTO userRegisterDTO) {
+        if (userRegisterDTO.role().equals("PATIENT")) {
+            return ResponseEntity.ok(patientService.createPatient(userRegisterDTO));
         }
-        if (userRegisterDTO.roles().contains("PATIENT")) {
-            return ResponseEntity.ok(userService.registerPatient(userRegisterDTO));
+        if (userRegisterDTO.role().equals("DOCTOR")) {
+            return ResponseEntity.ok(doctorService.createDoctor(userRegisterDTO));
         }
-        if (userRegisterDTO.roles().contains("DOCTOR")) {
-            return ResponseEntity.ok(userService.registerDoctor(userRegisterDTO));
-        }
-        return new ResponseEntity<>("Error en los roles", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping("/patient/dashboard")

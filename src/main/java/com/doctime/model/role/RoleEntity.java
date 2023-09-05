@@ -1,6 +1,5 @@
 package com.doctime.model.role;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import com.doctime.model.user.UserEntity;
@@ -25,7 +24,4 @@ public class RoleEntity {
 
     @Enumerated(EnumType.STRING)
     private ERole name;
-
-    @OneToMany(mappedBy = "roleEntity")
-    private Set<UserEntity> userEntities;
 }
