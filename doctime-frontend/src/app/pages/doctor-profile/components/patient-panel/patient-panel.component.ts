@@ -5,4 +5,17 @@ import { Component } from '@angular/core';
   templateUrl: './patient-panel.component.html',
   styleUrls: ['./patient-panel.component.scss'],
 })
-export class PatientPanelComponent {}
+export class PatientPanelComponent {
+  getStatusColor(estado: string): string {
+    switch (estado) {
+      case 'Pendiente':
+        return 'pending';
+      case 'Atendido':
+        return 'success';
+      case 'Rechazado':
+        return 'danger';
+      default:
+        return 'primary';
+    }
+  }
+}
