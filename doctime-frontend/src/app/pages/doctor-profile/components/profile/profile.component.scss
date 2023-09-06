@@ -1,0 +1,242 @@
+.profile {
+  &__header {
+    margin-bottom: 2rem;
+  }
+
+  &__form {
+    background-color: var(--text-white);
+    border-radius: 10px;
+  }
+
+  &__tabs {
+    padding: 15px;
+    // display: flex;
+    // align-items: center;
+    // justify-content: flex-start;
+    // gap:2rem;
+  }
+}
+
+.line {
+  border-bottom: 1px solid var(--color-text-attenuate);
+  height: 1px;
+  width: 100%;
+  margin: 3rem 0;
+}
+
+.info {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5625rem;
+
+  &__container {
+    background-color: var(--text-white);
+    border-radius: 10px;
+    height: 100%;
+    padding: 35px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+
+  &__content {
+    height: 560px;
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    &--img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+  }
+
+  &__data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &--title {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--color-title);
+      margin-bottom: 0.3125rem;
+    }
+
+    &--text {
+      font-size: 0.875rem;
+      color: var(--color-text-sidebar);
+      font-weight: 500;
+    }
+  }
+}
+
+.rating {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  // display: flex;
+  // justify-content: space-evenly;
+
+  &__star {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3125rem;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__info {
+    font-size: 1.375rem;
+    font-weight: 500;
+    text-align: center;
+  }
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9375rem;
+
+    &--label {
+      color: var(--color-title);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    &--field {
+      color: var(--color-text-sidebar);
+      font-weight: 500;
+      font-size: 14px;
+    }
+  }
+}
+
+.form {
+  padding: 0 20px;
+
+  &__wrapped {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+  }
+
+  &__header {
+    margin-bottom: 1.5rem;
+  }
+
+  &__ad {
+    border: 1px solid #114966;
+    border-radius: 10px;
+    padding: 10px;
+
+    &--content {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: flex-end;
+
+    &--save {
+      width: 0;
+      height: 40px;
+      position: relative;
+      border: 1px solid var(--color-primary);
+      background-color: transparent;
+      padding: 13px 20px;
+      border-radius: 20px;
+      min-width: 150px;
+      color: var(--sidebar-color);
+      line-height: 14px;
+      font-size: 15px;
+      display: inline-block;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      margin-bottom: 1rem;
+
+      &:hover {
+        background-color: var(--color-primary);
+        color: var(--text-white);
+      }
+    }
+  }
+}
+
+.box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+
+  &__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.75rem;
+
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(5),
+    &:nth-child(6) {
+      grid-column: 1/3;
+    }
+
+    &--label {
+      color: var(--color-bg-sidebar);
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    &--input {
+      width: 100%;
+      height: 40px;
+      border: 1px solid #114966;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      outline: none;
+    }
+
+    &--textarea {
+      height: 80px;
+      resize: none;
+    }
+  }
+}
