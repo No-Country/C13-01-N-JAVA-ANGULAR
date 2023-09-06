@@ -1,7 +1,7 @@
 package com.doctime.model.reservation;
 
 
-import com.doctime.model.patient.Patient;
+import com.doctime.model.patient.PatientEntity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="tb_reservation")
-@Data
+@Data 
 @NoArgsConstructor
 @AllArgsConstructor
 public class Reservation {
@@ -27,7 +27,7 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "paciente_id", referencedColumnName = "id")
-    private Patient patient;
+    private PatientEntity patient;
 
    
 

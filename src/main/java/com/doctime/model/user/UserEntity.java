@@ -1,10 +1,10 @@
 package com.doctime.model.user;
 
 import java.time.LocalDate;
-import java.util.Set;
 
 import com.doctime.model.gender.EGender;
 import com.doctime.model.role.RoleEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,11 +22,13 @@ public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false)
+    
+    @JsonIgnore
+    @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
+    @JsonIgnore
     private String password;
 
     @Column
@@ -45,7 +47,8 @@ public class UserEntity {
     @Column(unique = true)
     private String dni;
 
-    @ManyToMany(fetch = FetchType.EAGER, targetEntity = RoleEntity.class, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "tb_user_roles", joinColumns = @JoinColumn(name = "id_user"), inverseJoinColumns = @JoinColumn(name = "id_role"))
-    private Set<RoleEntity> roles;
+    @ManyToOne(cascade = CascadeType.PERSIST, optional = false) // por defecto ya es EAGER
+    @JoinColumn(name = "id_role")
+    @JsonIgnore
+    private RoleEntity role;
 }

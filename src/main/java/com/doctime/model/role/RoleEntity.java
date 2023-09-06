@@ -1,5 +1,9 @@
 package com.doctime.model.role;
 
+import java.util.Set;
+
+import com.doctime.model.user.UserEntity;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

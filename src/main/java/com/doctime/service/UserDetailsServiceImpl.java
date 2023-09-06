@@ -2,22 +2,21 @@ package com.doctime.service;
 
 import com.doctime.model.user.UserEntity;
 import com.doctime.repository.UserRepository;
+import com.doctime.security.CustomUserDetails;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.stream.Collectors;
+import java.util.Collections;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService {
-
+public class UserDetailsServiceImpl implements UserDetailsService {     
+              
         @Autowired
         private UserRepository userRepository;
 
@@ -28,17 +27,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                                 .orElseThrow(() -> new UsernameNotFoundException(
                                                 "El email " + email + " no existe."));
 
-                Collection<? extends GrantedAuthority> authorities = userEntity.getRoles()
-                                .stream()
-                                .map(role -> new SimpleGrantedAuthority("ROLE_".concat(role.getName().name())))
-                                .collect(Collectors.toSet());
+                GrantedAuthority authority = new SimpleGrantedAuthority(
+                                "ROLE_".concat(userEntity.getRole().getName().toString()));
 
-                return new User(userEntity.getEmail(),
-                                userEntity.getPassword(),
-                                true,
-                                true,
-                                true,
-                                true,
-                                authorities);
+                return new CustomUserDetails(userEntity.getId(), userEntity.getEmail(), userEntity.getPassword(),
+                                Collections.singletonList(authority), userEntity.getRole().getName().toString());
         }
 }

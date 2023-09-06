@@ -1,10 +1,14 @@
 package com.doctime.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.doctime.model.patient.Patient;
+import com.doctime.model.patient.DataListPatient;
+import com.doctime.model.patient.PatientEntity;
 
-public interface PatientRepository  extends JpaRepository<Patient, Long>{
+public interface PatientRepository extends JpaRepository<PatientEntity, Long> {
 
-    
+    List<PatientEntity> findAll();
+
 }

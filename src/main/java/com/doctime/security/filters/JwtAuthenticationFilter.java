@@ -1,6 +1,7 @@
 package com.doctime.security.filters;
 
 import com.doctime.model.user.UserEntity;
+import com.doctime.security.CustomUserDetails;
 import com.doctime.security.jwt.JwtUtils;
 import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.databind.DatabindException;
@@ -14,7 +15,6 @@ import org.springframework.http.MediaType;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.io.IOException;
@@ -60,15 +60,15 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
             FilterChain chain,
             Authentication authResult) throws IOException, ServletException {
 
-        User user = (User) authResult.getPrincipal();
+        CustomUserDetails user = (CustomUserDetails) authResult.getPrincipal();
         String token = jwtUtils.generateAccesToken(user.getUsername());
 
         response.addHeader("Authorization", token);
 
         Map<String, Object> httpResponse = new HashMap<>();
         httpResponse.put("token", token);
-        httpResponse.put("Message", "Autenticacion Correcta");
         httpResponse.put("email", user.getUsername());
+        httpResponse.put("role", user.getRole());
 
         response.getWriter().write(new ObjectMapper().writeValueAsString(httpResponse));
         response.setStatus(HttpStatus.OK.value());
