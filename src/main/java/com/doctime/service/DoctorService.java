@@ -1,25 +1,23 @@
 package com.doctime.service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.doctime.model.doctor.DoctorEntity;
 import com.doctime.model.role.ERole;
 import com.doctime.model.role.RoleEntity;
+import com.doctime.model.schedule.DataCreateSchedule;
+import com.doctime.model.schedule.ScheduleEntity;
 import com.doctime.model.user.UserEntity;
 import com.doctime.model.user.UserRegisterDTO;
 import com.doctime.model.user.UserResponseDTO;
 import com.doctime.repository.DoctorRepository;
-import com.doctime.repository.UserRepository;
-import com.doctime.security.CustomUserDetails;
 import com.doctime.security.jwt.JwtUtils;
 
 @Service
@@ -29,9 +27,11 @@ public class DoctorService {
         @Autowired
         private DoctorRepository doctorRepository;
         @Autowired
-        private UserRepository userRepository;
-        @Autowired
         private JwtUtils jwtUtils;
+        @Autowired
+        private CustomUserService customUserService;
+        @Autowired
+        private ScheduleSerive scheduleSerive;
 
         public UserResponseDTO createDoctor(UserRegisterDTO userRegisterDTO) {
                 RoleEntity roleREntity = RoleEntity.builder()
@@ -57,15 +57,9 @@ public class DoctorService {
                 return userResponseDTO;
         }
 
-        // public void addSchedule(LocalDate day, LocalTime startTime, LocalTime
-        // endTime) {
-        // Authentication authentication =
-        // SecurityContextHolder.getContext().getAuthentication();
-        // CustomUserDetails userDetails = (CustomUserDetails)
-        // authentication.getPrincipal();
-        // DoctorEntity doctorEntity =
-        // doctorRepository.findByUserId(userDetails.getId_user());
-        // String id_user = jwtUtils.getUsernameFromToken(null);
-        // // terminar
-        // }
+        public ScheduleEntity addSchedule(DataCreateSchedule dataCreateSchedule) {
+                // obtener el id del doctor
+                Long id = customUserService.getCurrentCustomUser().getId_user();
+                return scheduleSerive.saveSchedule(id, dataCreateSchedule);
+        }
 }

@@ -1,5 +1,6 @@
 package com.doctime.security.filters;
 
+import com.doctime.security.CustomUserDetails;
 import com.doctime.security.jwt.JwtUtils;
 import com.doctime.service.UserDetailsServiceImpl;
 import jakarta.servlet.FilterChain;
@@ -37,10 +38,9 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
 
             if (jwtUtils.isTokenValid(token)) {
                 String username = jwtUtils.getUsernameFromToken(token);
-                UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-
+                CustomUserDetails userDetails = userDetailsService.loadUserByUsername(username);
                 UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
-                        username, null, userDetails.getAuthorities());
+                        userDetails, null, userDetails.getAuthorities());
 
                 SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             }
