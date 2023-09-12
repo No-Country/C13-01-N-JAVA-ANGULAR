@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { NotifyService } from 'src/app/services/notify.service';
 import { UserLogin } from 'src/app/shared/models/auth.model';
@@ -17,7 +18,8 @@ export class LayoutLoginComponent {
 
   constructor(
     private authSvc: AuthService,
-    private notifySvc: NotifyService
+    private notifySvc: NotifyService,
+    private router: Router
   ) {}
 
   get email() {
@@ -33,10 +35,7 @@ export class LayoutLoginComponent {
     const password = this.password?.value;
 
     if (!email || !password) {
-      this.notifySvc.toastrSvc.error(
-        'Verifica tus datos',
-        'Error al iniciar sesión'
-      );
+      this.notifySvc.showError('Verifica tus datos', 'Error al iniciar sesión');
       return;
     }
 
@@ -46,12 +45,11 @@ export class LayoutLoginComponent {
     };
 
     this.authSvc.login(user).subscribe({
-      next: (res) => {
-        this.notifySvc.toastrSvc.success(
-          'Bienvenido',
-          'Inicio de sesión exitoso'
-        );
-        console.log(res);
+      next: () => {
+        this.notifySvc.showSuccess('Bienvenido', 'Inicio de sesión exitoso');
+      },
+      complete: () => {
+        this.router.navigate(['/doctime']);
       },
     });
   }

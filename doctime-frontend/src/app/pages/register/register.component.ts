@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NotifyService } from 'src/app/services/notify.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
@@ -31,16 +25,14 @@ export class RegisterComponent {
   });
 
   constructor(
-    private fb: FormBuilder,
     private notifySvc: NotifyService,
-    private toastr: ToastrService,
     private router: Router,
     private authSvc: AuthService
   ) {}
 
   onSubmit() {
     if (!this.myForm.valid) {
-      this.notifySvc.toastrSvc.error(
+      this.notifySvc.showError(
         'Verifica tus datos',
         'Error al crear la cuenta'
       );
@@ -54,7 +46,10 @@ export class RegisterComponent {
 
     this.authSvc.register(user).subscribe({
       next: () => {
-        this.toastr.success('Usuario creado', 'Registro exitoso');
+        this.notifySvc.showSuccess(
+          'Cuenta creada exitosamente',
+          'Cuenta creada'
+        );
       },
       complete: () => {
         this.router.navigate(['/doctime']);
