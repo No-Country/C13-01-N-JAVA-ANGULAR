@@ -32,6 +32,7 @@ export class RegisterComponent {
     private fb: FormBuilder,
     private notifySvc: NotifyService,
     private toastr: ToastrService,
+
     private router: Router
   ) {}
 
@@ -52,6 +53,7 @@ export class RegisterComponent {
   onSubmit() {
     this.myForm.markAllAsTouched();
     console.log(this.myForm.value);
+
     if (this.myForm.valid) {
       this.notifySvc.toastrSvc.success(
         'Seras redirigido al login',
