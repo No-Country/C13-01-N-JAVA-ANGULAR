@@ -9,6 +9,7 @@ import {
 import { ToastrService } from 'ngx-toastr';
 import { NotifyService } from 'src/app/services/notify.service';
 import { Router } from '@angular/router';
+import { RegisterService } from 'src/app/services/register.service';
 
 @Component({
   selector: 'app-register',
@@ -32,7 +33,7 @@ export class RegisterComponent {
     private fb: FormBuilder,
     private notifySvc: NotifyService,
     private toastr: ToastrService,
-
+    private readonly registerSvc: RegisterService,
     private router: Router
   ) {}
 
@@ -49,6 +50,15 @@ export class RegisterComponent {
   }
  */
   /* isValidField(field: string) { } */
+  /* register() {
+    const email = this.myForm.value.email;
+    const password = this.myForm.value.password;
+    const password2 = this.myForm.value.password2;
+
+    this.registerSvc.register(email, password, password2).subscribe((res) => {
+      console.log(res);
+    });
+  } */
 
   onSubmit() {
     this.myForm.markAllAsTouched();
