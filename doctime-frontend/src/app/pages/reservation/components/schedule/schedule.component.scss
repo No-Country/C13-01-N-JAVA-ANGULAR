@@ -1,0 +1,31 @@
+.calendario-container {
+    background-color: #FAF9FA;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  
+    h3 {
+      color: #305766;
+    }
+  
+    ul {
+      list-style: none;
+      padding: 0;
+  
+      li {
+        background-color: #68AECA;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+  
+        &:hover {
+          background-color: darken(#68AECA, 10%);
+        }
+      }
+    }
+  }
+  

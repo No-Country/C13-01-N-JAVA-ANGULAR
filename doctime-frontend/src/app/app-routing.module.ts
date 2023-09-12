@@ -20,6 +20,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./layout/layout.module').then((m) => m.LayoutModule),
   },
+  {
+    path: 'reservation',
+    loadChildren: () =>
+      import('./pages/reservation/reservation.module').then(
+        (m) => m.ReservationModule
+      ),
+  },
   { path: '**', redirectTo: 'doctime' },
 ];
 

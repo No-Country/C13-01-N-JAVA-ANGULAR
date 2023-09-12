@@ -1,0 +1,40 @@
+<div class="reserva-container">
+  <h1>Reserva de Turno Médico</h1>
+  <div class="reserva-content">
+    <div class="speciality">
+      <label for="speciality">Especialidad</label>
+      <select
+        id="speciality"
+        [(ngModel)]="selectedEspecialidad"
+        (change)="cargarMedicosPorEspecialidad()"
+      >
+        <!-- Opciones de especialidades -->
+        <option *ngFor="let speciality of specialties" [value]="speciality.id">
+          {{ speciality.name }}
+        </option>
+      </select>
+    </div>
+    <div class="doctor">
+      <label for="doctor">Médico</label>
+      <select id="doctor">
+        <!-- Opciones de médicos -->
+        <option *ngFor="let doctor of doctors" [value]="doctor.id">
+          {{ doctor.name }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="fecha-disponible">
+    <div class="calendario">
+      <!-- Calendario de disponibilidad -->
+      <app-schedule></app-schedule>
+    </div>
+    <div class="horarios">
+      <h3>Horarios Disponibles</h3>
+      <ul>
+        <li *ngFor="let horario of horarios">{{ horario }}</li>
+      </ul>
+    </div>
+  </div>
+  <button class="reservar-btn" (click)="reservarTurno()">Reservar Turno</button>
+</div>
