@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'register', pathMatch: 'full' },
-
   { path: '', redirectTo: 'doctime', pathMatch: 'full' },
   {
     path: 'login',
@@ -23,7 +21,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/register/register.module').then((m) => m.RegisterModule),
   },
-  { path: '**', redirectTo: 'register' },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./pages/doctor-profile/doctor-profile.module').then(
+        (m) => m.DoctorProfileModule
+      ),
+  },
   {
     path: 'doctime',
     loadChildren: () =>

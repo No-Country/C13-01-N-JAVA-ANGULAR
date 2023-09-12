@@ -9,8 +9,8 @@ import {
 import { ToastrService } from 'ngx-toastr';
 import { NotifyService } from 'src/app/services/notify.service';
 import { Router } from '@angular/router';
-import { Register } from 'src/app/models/auth.interface';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserRegister } from 'src/app/shared/models/auth.model';
 
 @Component({
   selector: 'app-register',
@@ -39,7 +39,6 @@ export class RegisterComponent {
   ) {}
 
   onSubmit() {
-    console.log(this.myForm.value);
     if (!this.myForm.valid) {
       this.notifySvc.toastrSvc.error(
         'Verifica tus datos',
@@ -47,18 +46,19 @@ export class RegisterComponent {
       );
       return;
     }
-    const user: Register = {
+    const user: UserRegister = {
       email: this.myForm.value.email ?? '',
       password: this.myForm.value.password ?? '',
       role: 'PATIENT',
     };
 
     this.authSvc.register(user).subscribe({
-      next: (res) => {
+      next: () => {
         this.toastr.success('Usuario creado', 'Registro exitoso');
-        console.log(res);
+      },
+      complete: () => {
+        this.router.navigate(['/doctime']);
       },
     });
-    this.myForm.reset();
   }
 }
