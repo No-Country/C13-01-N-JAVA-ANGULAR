@@ -1,156 +1,124 @@
 <div class="container">
-  <div class="form-user">
-    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-      <h1>REGISTRATE</h1>
-      <br />
+  <div class="container-register">
+    <div class="form-user">
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <h4>REGISTRATE</h4>
 
-      <div class="email">
-        <label for="email">Ingresa email</label>
-        <input
-          type="email"
-          class="form-control"
-          formControlName="email"
-          name="required"
-          placeholder="Correo"
-        />
-        <span
-          *ngIf="
-            myForm.controls['email'].getError('required') &&
-            myForm.controls['email'].touched
-          "
-          class="form-text"
-          >Campo Obligatorio
-        </span>
-        <span
-          *ngIf="
-            myForm.controls['email'].getError('email') &&
-            myForm.controls['email'].touched
-          "
-          class="form-text"
-          >Ingresa correo electronico valido</span
-        >
-      </div>
-      <div class="password">
-        <label for="password">Ingresa contraseña</label>
-        <input
-          type="password"
-          class="form-control"
-          formControlName="password"
-          name="required"
-          placeholder="Contraseña alfanumerica"
-        />
-        <span
-          *ngIf="
-            myForm.controls['password'].getError('required') &&
-            myForm.controls['password'].touched
-          "
-          class="form-text"
-          >Campo Obligatorio</span
-        >
-        <span
-          *ngIf="
-            myForm.controls['password'].getError('minlength') &&
-            myForm.controls['password'].touched
-          "
-          class="form-text"
-          >Contraseña alfanumerica requiere minimo 6 numeros</span
-        >
-      </div>
-      <div class="password">
-        <label for="password">Confirma contraseña</label>
-        <input
-          type="password"
-          class="form-control"
-          formControlName="password2"
-          name="required"
-          placeholder="Confirma tu contraseña alfanumerica"
-        />
-        <span
-          *ngIf="
-            myForm.controls['password2'].getError('required') &&
-            myForm.controls['password2'].touched
-          "
-          class="form-text"
-          >Campo Obligatorio</span
-        >
-        <span
-          *ngIf="
-            myForm.controls['password'].valid &&
-            myForm.controls['password2'].valid &&
-            myForm.controls.password.value === myForm.controls.password2.value
-          "
-          class="form-text"
-        ></span>
-        <span
-          *ngIf="
-            myForm.controls['password'].valid &&
-            myForm.controls['password2'].valid &&
-            myForm.controls.password.value !== myForm.controls.password2.value
-          "
-          class="form-text"
-          >Contraseñas no coinciden</span
-        >
-      </div>
-      <!--<div>
-        <button class="btn btn-success">COMO MEDICO</button>
-        <button class="btn btn-dark">COMO PACIENTE</button>
-      </div>-->
-      <span></span>
-      <span></span>
-      <span></span>
-      <br />
-      <br />
-
-      <button type="submit">REGISTRARSE</button>
-    </form>
-  </div>
-  <div class="form-img">
-    <div class="form-text center">
-      <h4>Gestiona tus citas médicas de forma sencilla</h4>
-    </div>
-    <div class="photo">
-      <img
-        src="../../../assets/images/3727319.jpg"
-        alt="Una imagen"
-        width="420"
-        height="320"
-      />
-    </div>
-    <br />
-    <br />
-    <div class="row social-media">
-      <div class="row">
-        <div class="col-sm-4">
-          <a href="#">
-            <img
-              src="../../../assets/images/phone.svg"
-              width="32"
-              height="32"
-              alt="Telephone"
-            />
-          </a>
+        <div class="input-container">
+          <label for="email">Ingresa email</label>
+          <input
+            type="email"
+            class="form-control"
+            formControlName="email"
+            name="required"
+            placeholder="Correo"
+          />
+          <span
+            *ngIf="
+              myForm.controls['email'].getError('required') &&
+              myForm.controls['email'].touched
+            "
+            class="form-text"
+            >Campo Obligatorio
+          </span>
+          <span
+            *ngIf="
+              myForm.controls['email'].getError('email') &&
+              myForm.controls['email'].touched
+            "
+            class="form-text"
+            >Ingresa correo electronico valido</span
+          >
         </div>
-      </div>
+        <div class="input-container">
+          <label for="password">Ingresa contraseña</label>
+          <input
+            type="password"
+            class="form-control"
+            formControlName="password"
+            name="required"
+            placeholder="Contraseña alfanumerica"
+          />
+          <span
+            *ngIf="
+              myForm.controls['password'].getError('required') &&
+              myForm.controls['password'].touched
+            "
+            class="form-text"
+            >Campo Obligatorio</span
+          >
+          <span
+            *ngIf="
+              myForm.controls['password'].getError('minlength') &&
+              myForm.controls['password'].touched
+            "
+            class="form-text"
+            >Contraseña alfanumerica requiere minimo 6 numeros</span
+          >
+        </div>
+        <div class="input-container">
+          <label for="password">Confirma contraseña</label>
+          <input
+            type="password"
+            class="form-control"
+            formControlName="password2"
+            name="required"
+            placeholder="Repetir contraseña"
+          />
+          <span
+            *ngIf="
+              myForm.controls['password2'].getError('required') &&
+              myForm.controls['password2'].touched
+            "
+            class="form-text"
+            >Campo Obligatorio</span
+          >
+          <span
+            *ngIf="
+              myForm.controls['password'].valid &&
+              myForm.controls['password2'].valid &&
+              myForm.controls.password.value === myForm.controls.password2.value
+            "
+            class="form-text"
+          ></span>
+          <span
+            *ngIf="
+              myForm.controls['password'].valid &&
+              myForm.controls['password2'].valid &&
+              myForm.controls.password.value !== myForm.controls.password2.value
+            "
+            class="form-text"
+            >Contraseñas no coinciden</span
+          >
+        </div>
+        <span></span>
+        <span></span>
+        <span></span>
+        <br />
+        <br />
 
-      <div class="col-sm-4">
-        <a href="#">
+        <div class="btn-actions">
+          <button class="btn-form" type="submit">REGISTRARSE</button>
+
+          <p class="cta-login">
+            ¿Ya tienes una cuenta?
+            <a [routerLink]="['/login']">Iniciar Sesión</a>
+          </p>
+        </div>
+      </form>
+    </div>
+    <div class="form-img">
+      <div class="panel-container">
+        <div class="title-img">
+          <h4>Gestiona tus citas médicas de forma sencilla</h4>
+        </div>
+        <div class="img-container">
           <img
-            src="../../../assets/images/mail.svg"
-            width="32"
-            height="32"
-            alt="Email"
+            class="img-fluid"
+            src="assets/images/login-page/register-panel.svg"
+            alt="panel image"
           />
-        </a>
-      </div>
-      <div class="col-sm-4">
-        <a href="#">
-          <img
-            src="../../../assets/images/internet.svg"
-            width="32"
-            height="32"
-            alt="Web Page"
-          />
-        </a>
+        </div>
       </div>
     </div>
   </div>
