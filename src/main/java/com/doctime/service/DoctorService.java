@@ -1,7 +1,9 @@
 package com.doctime.service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,8 +65,8 @@ public class DoctorService {
 
                 String token = jwtUtils.generateAccesToken(doctorEntity.getUser().getEmail());
                 UserResponseDTO userResponseDTO = new UserResponseDTO("Register completed",
-                                doctorEntity.getUser().getId(),
-                                token);
+                                doctorEntity.getUser().getId(), token,
+                                doctorEntity.getUser().getRole().getName().toString());
                 return userResponseDTO;
         }
 

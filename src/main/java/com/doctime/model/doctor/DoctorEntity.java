@@ -5,6 +5,7 @@ import java.util.Set;
 
 import com.doctime.model.schedule.ScheduleEntity;
 import com.doctime.model.user.UserEntity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,11 +25,9 @@ public class DoctorEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Temporal(TemporalType.TIMESTAMP) // Utiliza TIMESTAMP para fecha y hora
     @Column(name = "fecha_creacion", updatable = false)
     private LocalDateTime createdAt;
 
-    @Temporal(TemporalType.TIMESTAMP) // Utiliza TIMESTAMP para fecha y hora
     @Column(name = "fecha_actualizacion")
     private LocalDateTime updatedAt;
 
@@ -45,7 +44,8 @@ public class DoctorEntity {
     @JoinColumn(name = "id_user")
     private UserEntity user;
 
-    @OneToMany(mappedBy = "doctor", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Set<ScheduleEntity> scheduleEntity;
+    // @OneToMany(mappedBy = "doctor", fetch = FetchType.EAGER, cascade =
+    // CascadeType.ALL)
+    // private Set<ScheduleEntity> scheduleEntity;
 
 }

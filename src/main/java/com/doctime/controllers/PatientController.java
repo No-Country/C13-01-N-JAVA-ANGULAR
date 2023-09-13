@@ -16,7 +16,6 @@ import com.doctime.model.patient.DataListPatient;
 import com.doctime.model.patient.DataUpdatePatient;
 import com.doctime.model.patient.PatientEntity;
 import com.doctime.repository.PatientRepository;
-import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
 import java.util.List;
@@ -38,14 +37,14 @@ public class PatientController {
     return ResponseEntity.ok(patientRepository.findAll().stream().map(DataListPatient::new).toList());
   }
 
-  // @PostMapping
-  // public ResponseEntity<PatientEntity> registerPatient(
-  // @RequestBody @Valid DataCreatePatient dataCreatePatient) {
-  // return new ResponseEntity<>(patientRepository.save(new
-  // PatientEntity(dataCreatePatient)), HttpStatus.CREATED);
-  // }
+  @PostMapping
+  public ResponseEntity<PatientEntity> registerPatient(
+      @RequestBody @Valid DataCreatePatient dataCreatePatient) {
+    return new ResponseEntity<>(patientRepository.save(new PatientEntity(dataCreatePatient)), HttpStatus.CREATED);
+  }
+
+  // @Transactional
   @PutMapping
-  @Transactional
   @PreAuthorize("hasRole('PATIENT')")
   public ResponseEntity<DataUpdatePatient> updatedPatient(@RequestBody @Validated DataUpdatePatient dataUpdatePatient) {
     PatientEntity patient = patientRepository.getReferenceById(dataUpdatePatient.id());
@@ -56,7 +55,7 @@ public class PatientController {
   }
 
   @DeleteMapping("/{id}")
-  @Transactional
+  // @Transactional
   public ResponseEntity delete(@PathVariable Long id) {
     PatientEntity patient = patientRepository.getReferenceById(id);
     patientRepository.delete(patient);

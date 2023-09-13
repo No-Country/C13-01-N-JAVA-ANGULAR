@@ -1,6 +1,7 @@
 package com.doctime.security.filters;
 
 import com.doctime.model.user.UserEntity;
+import com.doctime.model.user.UserFake;
 import com.doctime.security.CustomUserDetails;
 import com.doctime.security.jwt.JwtUtils;
 import com.fasterxml.jackson.core.exc.StreamReadException;
@@ -33,13 +34,13 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     public Authentication attemptAuthentication(HttpServletRequest request,
             HttpServletResponse response) throws AuthenticationException {
 
-        UserEntity userEntity = null;
+        UserFake userEntity = null;
         String email = "";
         String password = "";
         try {
-            userEntity = new ObjectMapper().readValue(request.getInputStream(), UserEntity.class);
-            email = userEntity.getEmail();
-            password = userEntity.getPassword();
+            userEntity = new ObjectMapper().readValue(request.getInputStream(), UserFake.class);
+            email = userEntity.email();
+            password = userEntity.password();
         } catch (StreamReadException e) {
             throw new RuntimeException(e);
         } catch (DatabindException e) {
@@ -50,7 +51,6 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(email,
                 password);
-
         return getAuthenticationManager().authenticate(authenticationToken);
     }
 
@@ -66,6 +66,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         response.addHeader("Authorization", token);
 
         Map<String, Object> httpResponse = new HashMap<>();
+        httpResponse.put("id", user.getId_user());
         httpResponse.put("token", token);
         httpResponse.put("email", user.getUsername());
         httpResponse.put("role", user.getRole());
