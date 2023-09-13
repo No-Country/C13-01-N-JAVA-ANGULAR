@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
+
 import {
-  FormBuilder,
   FormControl,
   FormGroup,
+  PatternValidator,
   Validators,
 } from '@angular/forms';
+import { NotifyService } from 'src/app/services/notify.service';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { UserRegister } from 'src/app/shared/models/auth.model';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +21,7 @@ export class RegisterComponent {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
       Validators.required,
-      Validators.minLength(6),
+      Validators.pattern(/^[a-zA-Z0-9]{8,}$/),
     ]),
     password2: new FormControl('', [
       Validators.required,
@@ -24,26 +29,38 @@ export class RegisterComponent {
     ]),
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private notifySvc: NotifyService,
+    private authSvc: AuthService,
 
-  /* asyncmailValidator(control: FormControl) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        if (control.value === 'correo@correo.com') {
-          resolve({ exists: true });
-        } else {
-          resolve(null);
-        }
-      }, 1000)
-    });
-  }
- */
-  /* isValidField(field: string) { } */
+    private router: Router
+  ) {}
 
   onSubmit() {
-    this.myForm.markAllAsTouched();
     console.log(this.myForm.value);
+    if (!this.myForm.valid) {
+      this.notifySvc.showError(
+        'Verifica tus datos',
+        'Error al crear la cuenta'
+      );
+      return;
+    }
+    const user: UserRegister = {
+      email: this.myForm.value.email ?? '',
+      password: this.myForm.value.password ?? '',
+      role: 'PATIENT',
+    };
 
-    this.myForm.reset();
+    this.authSvc.register(user).subscribe({
+      next: () => {
+        this.notifySvc.showSuccess(
+          'Cuenta creada exitosamente',
+          'Cuenta creada'
+        );
+      },
+      complete: () => {
+        this.router.navigate(['/doctime']);
+      },
+    });
   }
 }

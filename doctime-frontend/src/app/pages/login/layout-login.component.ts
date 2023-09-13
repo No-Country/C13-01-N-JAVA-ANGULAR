@@ -1,7 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { Login } from 'src/app/shared/models/auth.model';
+import { NotifyService } from 'src/app/services/notify.service';
+import { UserLogin } from 'src/app/shared/models/auth.model';
 
 @Component({
   selector: 'app-layout-login',
@@ -14,7 +16,11 @@ export class LayoutLoginComponent {
     password: new FormControl('', [Validators.required]),
   });
 
-  private authService = inject(AuthService);
+  constructor(
+    private authSvc: AuthService,
+    private notifySvc: NotifyService,
+    private router: Router
+  ) {}
 
   get email() {
     return this.loginForm.get('email');
@@ -29,16 +35,22 @@ export class LayoutLoginComponent {
     const password = this.password?.value;
 
     if (!email || !password) {
+      this.notifySvc.showError('Verifica tus datos', 'Error al iniciar sesión');
       return;
     }
 
-    const user: Login = {
+    const user: UserLogin = {
       email,
       password,
     };
 
-    this.authService.login(user).subscribe((res) => {
-      console.log(res);
+    this.authSvc.login(user).subscribe({
+      next: () => {
+        this.notifySvc.showSuccess('Bienvenido', 'Inicio de sesión exitoso');
+      },
+      complete: () => {
+        this.router.navigate(['/doctime']);
+      },
     });
   }
 }
