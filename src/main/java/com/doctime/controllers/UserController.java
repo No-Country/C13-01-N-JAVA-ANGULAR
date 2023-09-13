@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.doctime.model.user.UserRegisterDTO;
 import com.doctime.model.user.UserResponseDTO;
+import com.doctime.repository.UserRepository;
+import com.doctime.security.jwt.JwtUtils;
 import com.doctime.service.DoctorService;
 import com.doctime.service.PatientService;
 
@@ -25,6 +29,12 @@ public class UserController {
     PatientService patientService;
     @Autowired
     DoctorService doctorService;
+    @Autowired
+    AuthenticationManager authenticationManager;
+    @Autowired
+    UserRepository repository;
+    @Autowired
+    JwtUtils jwtUtils;
 
     @PostMapping("/register")
     public ResponseEntity<UserResponseDTO> registerUser(@Valid @RequestBody UserRegisterDTO userRegisterDTO) {

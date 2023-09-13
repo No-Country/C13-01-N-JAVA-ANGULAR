@@ -2,7 +2,6 @@ package com.doctime.model.patient;
 
 import java.time.LocalDateTime;
 
-import com.doctime.model.doctor.DoctorEntity;
 import com.doctime.model.user.UserEntity;
 
 import jakarta.persistence.CascadeType;

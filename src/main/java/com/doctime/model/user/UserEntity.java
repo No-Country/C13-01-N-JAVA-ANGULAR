@@ -22,8 +22,6 @@ public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    @JsonIgnore
     @Column(nullable = false, unique = true)
     private String email;
 
@@ -49,6 +47,5 @@ public class UserEntity {
 
     @ManyToOne(cascade = CascadeType.PERSIST, optional = false) // por defecto ya es EAGER
     @JoinColumn(name = "id_role")
-    @JsonIgnore
     private RoleEntity role;
 }
