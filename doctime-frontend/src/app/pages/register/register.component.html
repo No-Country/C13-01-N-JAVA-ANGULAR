@@ -2,8 +2,10 @@
   <div class="form-user">
     <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
       <h1>REGISTRATE</h1>
+      <br />
+
       <div class="email">
-        <h4>Ingresa email</h4>
+        <label for="email">Ingresa email</label>
         <input
           type="email"
           class="form-control"
@@ -29,7 +31,7 @@
         >
       </div>
       <div class="password">
-        <h4>Ingresa contraseña</h4>
+        <label for="password">Ingresa contraseña</label>
         <input
           type="password"
           class="form-control"
@@ -55,7 +57,7 @@
         >
       </div>
       <div class="password">
-        <h4>Confirma contraseña</h4>
+        <label for="password">Confirma contraseña</label>
         <input
           type="password"
           class="form-control"
@@ -89,10 +91,10 @@
           >Contraseñas no coinciden</span
         >
       </div>
-      <div class="check">
-        <input type="checkbox" name="required" id="checkbox" />
-        <label for="checkbox">Acepto los términos y condiciones</label>
-      </div>
+      <!--<div>
+        <button class="btn btn-success">COMO MEDICO</button>
+        <button class="btn btn-dark">COMO PACIENTE</button>
+      </div>-->
       <span></span>
       <span></span>
       <span></span>
@@ -110,8 +112,8 @@
       <img
         src="../../../assets/images/3727319.jpg"
         alt="Una imagen"
-        width="520"
-        height="480"
+        width="420"
+        height="320"
       />
     </div>
     <br />
@@ -122,8 +124,8 @@
           <a href="#">
             <img
               src="../../../assets/images/phone.svg"
-              width="48"
-              height="48"
+              width="32"
+              height="32"
               alt="Telephone"
             />
           </a>
@@ -134,8 +136,8 @@
         <a href="#">
           <img
             src="../../../assets/images/mail.svg"
-            width="48"
-            height="48"
+            width="32"
+            height="32"
             alt="Email"
           />
         </a>
@@ -144,8 +146,8 @@
         <a href="#">
           <img
             src="../../../assets/images/internet.svg"
-            width="48"
-            height="48"
+            width="32"
+            height="32"
             alt="Web Page"
           />
         </a>

@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'register', pathMatch: 'full' },
-
   { path: '', redirectTo: 'doctime', pathMatch: 'full' },
   {
     path: 'login',
@@ -17,13 +16,21 @@ const routes: Routes = [
       import('./pages/patient-profile/patient-profile.module').then(
         (m) => m.PatientProfileModule
       ),
+    canMatch: [AuthGuard],
   },
   {
     path: 'register',
     loadChildren: () =>
       import('./pages/register/register.module').then((m) => m.RegisterModule),
   },
-  { path: '**', redirectTo: 'register' },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./pages/doctor-profile/doctor-profile.module').then(
+        (m) => m.DoctorProfileModule
+      ),
+    canActivate: [AuthGuard],
+  },
   {
     path: 'doctime',
     loadChildren: () =>

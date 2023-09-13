@@ -10,15 +10,24 @@
 
 :root {
   --text-white: #fff;
+  --color-text-sidebar: #727788;
+  --color-border: #e0dfdf;
   --button-color-text: #fff;
+  --color-bg-sidebar: #1e1e1e;
+  --color-sidebar-active: #00a8ea;
   --color-text: #333;
   --color-text-attenuate: #818ca1;
   --color-text-attenuate-2: #bdc4ce;
-  --color-bg: #faf9fa;
+  --color-bg: #f4f5f7;
   --color-primary: #49c2f2;
+  --color-primary-hover: #1a7cb5;
   --color-secondary: #305766;
   --color-bg-form: #b2d7e6;
   --color: #68aeca;
+}
+
+body {
+  background-color: var(--color-bg);
 }
 
 h1,
@@ -32,6 +41,10 @@ h6 {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   color: var(--color-text);
+}
+
+a {
+  text-decoration: none;
 }
 
 .btn {
