@@ -8,6 +8,7 @@ import com.doctime.model.status.EStatus;
 
 public record DataListReservation(
     Long id,
+    String date,
     String title,
     EStatus status,
     Double price,
@@ -18,6 +19,7 @@ public record DataListReservation(
 ) {
     public DataListReservation(Reservation reservation){
         this(reservation.getId(),
+        reservation.getDate(),
         reservation.getTitle(),
         reservation.getStatus(),
         reservation.getPrice(),

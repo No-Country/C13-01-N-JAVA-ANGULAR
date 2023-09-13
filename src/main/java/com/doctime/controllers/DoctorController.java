@@ -17,9 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.doctime.model.doctor.DataListDoctor;
 import com.doctime.model.doctor.DataUpdateDoctor;
 import com.doctime.model.doctor.DoctorEntity;
-import com.doctime.model.patient.DataListPatient;
-import com.doctime.model.patient.DataUpdatePatient;
-import com.doctime.model.patient.PatientEntity;
+
 import com.doctime.repository.DoctorRepository;
 
 import jakarta.transaction.Transactional;

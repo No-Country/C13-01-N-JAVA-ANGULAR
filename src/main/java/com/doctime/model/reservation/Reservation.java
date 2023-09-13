@@ -35,6 +35,9 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @Column
+    private String date;
 
     @Temporal(TemporalType.TIMESTAMP) // Utiliza TIMESTAMP para fecha y hora
     @Column(name = "fecha_creacion", updatable = false)
@@ -63,6 +66,7 @@ public class Reservation {
     private DoctorEntity doctor;
 
     public Reservation(DataCreateReservation dataCreateReservation) {
+        this.date = dataCreateReservation.date();
         this.title = dataCreateReservation.title();
         this.status = dataCreateReservation.status();
         this.price = dataCreateReservation.price();
@@ -73,6 +77,9 @@ public class Reservation {
     }
 
     public void updateReser(DataUpdateReservation dataUpdateReservation){
+        if (dataUpdateReservation.date() != null) {
+            this.date = dataUpdateReservation.title();
+        }
         if (dataUpdateReservation.title() != null) {
             this.title = dataUpdateReservation.title();
         }
