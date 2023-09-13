@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import com.doctime.model.gender.EGender;
 import com.doctime.model.role.RoleEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,9 +24,11 @@ public class UserEntity {
     private Long id;
 
     @Column(nullable = false, unique = true)
+    @JsonIgnore
     private String email;
 
     @Column(nullable = false)
+    @JsonIgnore
     private String password;
 
     @Column
