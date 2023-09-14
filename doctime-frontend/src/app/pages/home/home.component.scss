@@ -1,16 +1,16 @@
 main {
-  width: 100vw;
+  width: 100%;
   height: 100%;
   padding-bottom: 8rem;
 
   .container {
-    width: 100vw;
+    width: 100%;
     height: 100%;
     position: relative;
+    background: transparent;
 
     img.bg-hero {
       width: 100%;
-      height: 100%;
       object-fit: cover;
       position: absolute;
       z-index: -1;
@@ -76,7 +76,7 @@ main {
           background: var(--color-secondary);
 
           &::before {
-            content: '';
+            content: "";
             transform: scale(1.1);
             width: 30rem;
             height: 30rem;
@@ -118,6 +118,11 @@ main {
       padding: 4rem;
       background: #4ac3f280;
 
+      @media (max-width: 768px) {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
       .cta-left {
         .img-container {
           max-width: 500px;
@@ -136,6 +141,10 @@ main {
       .cta-right {
         padding: 0 2rem;
 
+        @media (max-width: 768px) {
+          padding: 0;
+        }
+
         .cta-right-content {
           max-width: 600px;
           display: flex;
@@ -152,6 +161,13 @@ main {
 
           p {
             font-size: 1rem;
+          }
+        }
+
+        button {
+
+          @media (max-width: 768px) {
+            width: 100%;
           }
         }
       }
@@ -202,5 +218,32 @@ main {
       max-width: 1216px;
       margin: 0 auto;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .hero-right {
+    display: none !important;
+  }
+
+  .hero-left {
+    padding: 1rem;
+    h1 {
+      font-size: 2rem !important;
+      color: #202020 !important;
+    }
+
+    p {
+      font-size: 1.25rem !important;
+      color: #202020 !important;
+    }
+    text-align: center !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 }

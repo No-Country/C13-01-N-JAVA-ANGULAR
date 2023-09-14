@@ -1,5 +1,14 @@
 .container-specialties {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  margin: 12rem auto 0rem;
+
+  .content-specialties {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 1rem;
+  }
 }
