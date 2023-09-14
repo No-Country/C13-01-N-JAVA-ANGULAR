@@ -1,15 +1,14 @@
 package com.doctime.controllers;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,12 +17,12 @@ import com.doctime.model.doctor.DataListDoctor;
 import com.doctime.model.doctor.DataUpdateDoctor;
 import com.doctime.model.doctor.DoctorEntity;
 import com.doctime.model.schedule.DataCreateSchedule;
-import com.doctime.model.schedule.ScheduleEntity;
 import com.doctime.repository.DoctorRepository;
 import com.doctime.repository.ScheduleRepository;
 import com.doctime.service.CustomUserService;
 import com.doctime.service.DoctorService;
 
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
 @RestController
@@ -47,9 +46,11 @@ public class DoctorController {
         return ResponseEntity.ok(doctorService.saveSchedule(doctor, dataCreateSchedule));
     }
 
-    @GetMapping("/schedule/{id}")
+    @GetMapping("/schedule/listar")
     @PreAuthorize("hasRole('DOCTOR')")
+    @Transactional
     public ResponseEntity<List<DataCreateSchedule>> getScheduleById() {
+        System.out.println("SCHEDULEEEEEEEEEEEEEE" + scheduleRepository.findById(1L));
         return ResponseEntity.ok(scheduleRepository.findAll().stream().map(DataCreateSchedule::new).toList());
     }
 
@@ -66,7 +67,7 @@ public class DoctorController {
         return ResponseEntity.ok(new DataListDoctor(doctor));
     }
 
-    @PutMapping
+    @PatchMapping
     @PreAuthorize("hasRole('DOCTOR')")
     public ResponseEntity<DataListDoctor> updateDoctor(@Valid @RequestBody DataUpdateDoctor dataUpdateDoctor) {
         Long id = customUserService.getCurrentCustomUser().getId_user();

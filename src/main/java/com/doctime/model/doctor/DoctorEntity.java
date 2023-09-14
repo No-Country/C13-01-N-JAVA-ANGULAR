@@ -1,11 +1,8 @@
 package com.doctime.model.doctor;
 
 import java.time.LocalDateTime;
-import java.util.Set;
 
-import com.doctime.model.schedule.ScheduleEntity;
 import com.doctime.model.user.UserEntity;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

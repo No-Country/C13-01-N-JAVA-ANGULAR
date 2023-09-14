@@ -1,4 +1,4 @@
-package com.doctime.model.specialty;
+package com.doctime.model.location;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,14 +10,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "tb_specialty")
+@Table(name = "tb_location")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Specialty {
+public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String name;
-
+    private Long id;
+    private String country;
+    private String city;
+    private String street_name;
+    
+    
 }

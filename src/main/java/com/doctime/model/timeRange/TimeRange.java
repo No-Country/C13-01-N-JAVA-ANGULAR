@@ -3,7 +3,6 @@ package com.doctime.model.timeRange;
 import java.time.LocalTime;
 
 import com.doctime.model.schedule.ScheduleEntity;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

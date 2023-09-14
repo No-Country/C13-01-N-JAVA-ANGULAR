@@ -1,14 +1,9 @@
 package com.doctime.service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -93,33 +88,41 @@ public class DoctorService {
                 ScheduleEntity scheduleExist = scheduleRepository
                                 .findByDoctorAndDayOfWeek(doctor, dataCreateSchedule.dayOfWeek())
                                 .orElse(null);
-                // if la fecha no existe , crear la entidad y asignarle el rango de horas
+                // if existe borrar todas sus horarios y asignarle nuevos
                 if (scheduleExist != null) {
                         timeRangeRepository.deleteBySchedule(scheduleExist);
-                        scheduleRepository.delete(scheduleExist);
-                }
-                scheduleExist = null;
-                scheduleExist = ScheduleEntity.builder()
-                                .dayOfWeek(dataCreateSchedule.dayOfWeek())
-                                .created_at(LocalDateTime.now())
-                                .update_at(LocalDateTime.now())
-                                .timeRange(new HashSet<>())
-                                .doctor(doctor).build();
-                scheduleExist = scheduleRepository.save(scheduleExist);
+                        for (TimeRange timeRange : dataCreateSchedule.timeRange()) {
+                                TimeRange timeRange2 = TimeRange.builder()
+                                                .start_time(timeRange.getStart_time())
+                                                .schedule(scheduleExist)
+                                                .end_time(timeRange.getEnd_time()).build();
+                                timeRangeRepository.save(timeRange2);
+                        }
+                        DataCreateSchedule dataCreateScheduleResp = new DataCreateSchedule(scheduleExist.getId(),
+                                        scheduleExist.getDayOfWeek(),
+                                        timeRangeRepository.findByScheduleId(scheduleExist.getId()));
+                        return dataCreateScheduleResp;
+                } else {
+                        ScheduleEntity scheduleEntity = ScheduleEntity.builder()
+                                        .dayOfWeek(dataCreateSchedule.dayOfWeek())
+                                        .created_at(LocalDateTime.now())
+                                        .update_at(LocalDateTime.now())
+                                        .timeRange(new HashSet<>())
+                                        .doctor(doctor).build();
+                        ScheduleEntity scheduleNuevo = scheduleRepository.save(scheduleEntity);
 
-                for (TimeRange timeRange : dataCreateSchedule.timeRange()) {
-                        TimeRange timeRange2 = TimeRange.builder()
-                                        .start_time(timeRange.getStart_time())
-                                        .schedule(scheduleExist)
-                                        .end_time(timeRange.getEnd_time()).build();
-                        timeRangeRepository.save(timeRange2);
+                        for (TimeRange timeRange : dataCreateSchedule.timeRange()) {
+                                TimeRange timeRange2 = TimeRange.builder()
+                                                .start_time(timeRange.getStart_time())
+                                                .schedule(scheduleNuevo)
+                                                .end_time(timeRange.getEnd_time()).build();
+                                timeRangeRepository.save(timeRange2);
+                        }
+                        DataCreateSchedule dataCreateScheduleResp = new DataCreateSchedule(scheduleNuevo.getId(),
+                                        scheduleNuevo.getDayOfWeek(),
+                                        timeRangeRepository.findByScheduleId(scheduleNuevo.getId()));
+                        return dataCreateScheduleResp;
                 }
-                ScheduleEntity scheduleEntity = scheduleRepository.save(scheduleExist);
-                DataCreateSchedule dataCreateSchedule2 = new DataCreateSchedule(scheduleEntity.getId(),
-                                scheduleEntity.getDayOfWeek(),
-                                timeRangeRepository.findByScheduleId(scheduleEntity.getId()));
-
-                return dataCreateSchedule2;
 
         }
 }

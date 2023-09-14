@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import com.doctime.model.gender.EGender;
 import com.doctime.model.role.RoleEntity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
@@ -38,6 +39,7 @@ public class UserEntity {
     private String last_name;
 
     @Column
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthday;
 
     @Column

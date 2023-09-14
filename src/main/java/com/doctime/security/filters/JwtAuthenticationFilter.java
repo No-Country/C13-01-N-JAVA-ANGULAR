@@ -1,6 +1,5 @@
 package com.doctime.security.filters;
 
-import com.doctime.model.user.UserEntity;
 import com.doctime.model.user.UserFake;
 import com.doctime.security.CustomUserDetails;
 import com.doctime.security.jwt.JwtUtils;
@@ -66,7 +65,6 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         response.addHeader("Authorization", token);
 
         Map<String, Object> httpResponse = new HashMap<>();
-        httpResponse.put("id", user.getId_user());
         httpResponse.put("token", token);
         httpResponse.put("email", user.getUsername());
         httpResponse.put("role", user.getRole());
