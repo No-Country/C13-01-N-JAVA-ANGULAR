@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { ReservationFormComponent } from './components/reservation-form/reservation-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     TabsComponent,
     ReservationFormComponent,
   ],
-  imports: [CommonModule, RouterModule, ReactiveFormsModule],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, HttpClientModule],
   exports: [
     HeaderComponent,
     FooterComponent,

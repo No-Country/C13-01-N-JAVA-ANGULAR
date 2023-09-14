@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './layout.component.html',
   styles: [],
 })
-export class LayoutComponent {}
+export class LayoutComponent {
+  show = true;
+}

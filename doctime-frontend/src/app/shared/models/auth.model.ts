@@ -9,19 +9,26 @@ export interface UserLogin {
   password: string;
 }
 
-export interface ResLogin {
+export interface ResAuth {
   id: number;
   token: string;
-  message: string;
-}
-export interface ResRegister {
-  id: number;
-  accessToken: string;
   message: string;
 }
 
 export interface User {
   id?: string;
   email: string;
+  role: string;
+}
+
+export interface DoctorRegister {
+  name: string;
+  lastname: string;
+  email: string;
+  password: string;
+  specialty: string;
+  phone: string;
+  address: string;
+  paymentTypes: string;
   role: string;
 }

@@ -1,4 +1,4 @@
-<section class="container-form">
+<section class="container-form" *ngIf="show">
   <form [formGroup]="reservationForm" (ngSubmit)="onReservation()">
     <div class="lengend">
       <h2>Reservar una Cita</h2>
@@ -42,12 +42,10 @@
       </div>
 
       <div class="btn-actions">
-        <button class="btn-cancel">Cancelar</button>
-        <button
-          type="submit"
-          class="btn-form btn-form-reservation"
-          [disabled]="!reservationForm.valid"
-        >
+        <button class="btn-cancel" type="button" (click)="closeForm()">
+          Cancelar
+        </button>
+        <button type="submit" class="btn-form btn-form-reservation">
           Reservar
         </button>
       </div>

@@ -112,7 +112,9 @@ form {
 }
 
 button {
-  width: 100%;
+  display: block;
+  width: 80%;
+  margin: 1rem auto 0;
 }
 
 button:hover {
@@ -125,4 +127,32 @@ button:hover {
   padding-top: 1rem;
   font-size: 1rem;
   color: #305766;
+
+  a {
+    display: block;
+    color: #3a3aff;
+    text-decoration: underline;
+
+    &:hover {
+      color: #305766;
+    }
+  }
+}
+
+.cta-doctor-register {
+  p {
+    text-align: center;
+    padding-top: 1rem;
+    font-size: 1rem;
+    color: #305766;
+
+    a {
+      color: #3a3aff;
+      text-decoration: underline;
+
+      &:hover {
+        color: #305766;
+      }
+    }
+  }
 }
