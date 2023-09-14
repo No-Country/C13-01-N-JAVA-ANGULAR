@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {
+  DoctorRegister,
   ResLogin,
   ResRegister,
   UserLogin,
@@ -35,7 +36,7 @@ export class AuthService {
     );
   }
 
-  register(user: UserRegister): Observable<ResRegister> {
+  register(user: UserRegister | DoctorRegister): Observable<ResRegister> {
     return this.http
       .post<ResRegister>(`${this.apiUrl}/user/register`, user)
       .pipe(

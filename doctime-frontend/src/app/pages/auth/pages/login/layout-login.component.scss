@@ -54,23 +54,23 @@
         }
       }
 
-
-
       .links {
         width: 80%;
         margin: 1rem auto 0;
 
-        a {
-          display: block;
+        .cta-register {
           text-align: center;
-          color: var(--color-secondary);
-          text-decoration: none;
-          &:hover {
-            text-decoration: underline;
-          }
+          padding-top: 1rem;
+          font-size: 1rem;
+          color: #305766;
 
-          &:first-child {
-            margin-bottom: 0.5rem;
+          a {
+            color: #3a3aff;
+            text-decoration: underline;
+
+            &:hover {
+              color: #305766;
+            }
           }
         }
       }

@@ -2,7 +2,7 @@
   <div class="container-register">
     <div class="form-user">
       <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-        <h4>REGISTRATE</h4>
+        <h4>REGÍSTRATE</h4>
 
         <div class="input-container">
           <label for="email">Ingresa email</label>
@@ -57,18 +57,18 @@
           >
         </div>
         <div class="input-container">
-          <label for="password">Confirma contraseña</label>
+          <label for="password">Confirmar contraseña</label>
           <input
             type="password"
             class="form-control"
-            formControlName="password2"
+            formControlName="passwordConfirm"
             name="required"
             placeholder="Repetir contraseña"
           />
           <span
             *ngIf="
-              myForm.controls['password2'].getError('required') &&
-              myForm.controls['password2'].touched
+              myForm.controls['passwordConfirm'].getError('required') &&
+              myForm.controls['passwordConfirm'].touched
             "
             class="form-text"
             >Campo Obligatorio</span
@@ -76,33 +76,26 @@
           <span
             *ngIf="
               myForm.controls['password'].valid &&
-              myForm.controls['password2'].valid &&
-              myForm.controls.password.value === myForm.controls.password2.value
-            "
-            class="form-text"
-          ></span>
-          <span
-            *ngIf="
-              myForm.controls['password'].valid &&
-              myForm.controls['password2'].valid &&
-              myForm.controls.password.value !== myForm.controls.password2.value
+              myForm.controls['passwordConfirm'].valid &&
+              myForm.controls['password'].value !==
+                myForm.controls['passwordConfirm'].value
             "
             class="form-text"
             >Contraseñas no coinciden</span
           >
         </div>
-        <span></span>
-        <span></span>
-        <span></span>
-        <br />
-        <br />
 
         <div class="btn-actions">
           <button class="btn-form" type="submit">REGISTRARSE</button>
-
+          <div class="cta-doctor-register">
+            <p>
+              ¿Eres doctor?
+              <a [routerLink]="['/auth/register-doctor']">Regístrate aquí</a>
+            </p>
+          </div>
           <p class="cta-login">
             ¿Ya tienes una cuenta?
-            <a [routerLink]="['/login']">Iniciar Sesión</a>
+            <a [routerLink]="['/auth/login']">Iniciar sesión</a>
           </p>
         </div>
       </form>

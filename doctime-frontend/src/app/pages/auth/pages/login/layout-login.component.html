@@ -2,13 +2,19 @@
   <div class="login-form">
     <div class="login-form-content">
       <div class="logo">
-        <img src="../../../assets/images/logo.svg" alt="logo" />
+        <img src="assets/images/logo.svg" alt="logo" />
         <h1>DocTime</h1>
       </div>
       <form [formGroup]="loginForm">
         <div class="form-group">
           <label for="email">Correo Electronico</label>
-          <input type="email" id="email" name="email" formControlName="email" />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            formControlName="email"
+            placeholder="Ingresa tu correo electronico"
+          />
         </div>
         <div class="form-group">
           <label for="password">Contraseña</label>
@@ -17,19 +23,22 @@
             id="password"
             name="password"
             formControlName="password"
+            placeholder="Ingresa tu contraseña"
           />
         </div>
         <button class="btn-form" (click)="login()">Iniciar Sesión</button>
         <div class="links">
-          <a href="#">¿Olvidaste tu contraseña?</a>
-          <a [routerLink]="['/register']">Registrarse</a>
+          <p class="cta-register">
+            ¿Aun no tienes una cuenta?
+            <a [routerLink]="['/auth/register']">Regístrate</a>
+          </p>
         </div>
       </form>
     </div>
     <div class="login-form-img">
       <img
         title="Bienvenid@ a DocTime"
-        src="../../../assets/images/panel-login.svg"
+        src="assets/images/panel-login.svg"
         alt="panel login"
       />
     </div>

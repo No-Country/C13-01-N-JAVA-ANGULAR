@@ -5,11 +5,10 @@ import { AuthGuard } from './services/auth.guard';
 const routes: Routes = [
   { path: '', redirectTo: 'doctime', pathMatch: 'full' },
   {
-    path: 'login',
+    path: 'auth',
     loadChildren: () =>
-      import('./pages/login/login.module').then((m) => m.LoginModule),
+      import('./pages/auth/auth.module').then((m) => m.AuthModule),
   },
-
   {
     path: 'profile',
     loadChildren: () =>
@@ -21,7 +20,9 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () =>
-      import('./pages/register/register.module').then((m) => m.RegisterModule),
+      import('./pages/auth/pages/register/register.module').then(
+        (m) => m.RegisterModule
+      ),
   },
   {
     path: 'dashboard',
