@@ -146,36 +146,35 @@ a {
     }
   }
 
-  &.btn-dark {
-    background-color: #2d9cdb;
-    color: var(--button-color-text);
-
-    &:hover {
-      background-color: #2d9cdb;
-      color: var(--button-color-text);
-    }
-  }
-
-  &.btn-link {
-    background-color: transparent;
-    color: #2d9cdb;
-    border: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
 }
 
 .btn-form {
   margin: 1rem auto 0;
-  width: 80%;
   padding: 0.6rem;
+  width: 80%;
   background-color: var(--color-primary);
   color: var(--button-color-text);
   font-size: 1rem;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.btn-form-reservation {
+  margin: 0;
+  width: auto;
+}
+
+.btn-cancel {
+  color: rgb(221, 55, 55);
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  padding: 0.6rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #ccc;
+  }
 }

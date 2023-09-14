@@ -15,7 +15,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
   private apiUrl = 'http://localhost:8080';
   private id?: number;
-  private token?: string;
+  public token?: string;
 
   get currentUser() {
     if (!this.id) return undefined;
