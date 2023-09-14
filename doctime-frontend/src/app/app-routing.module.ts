@@ -25,6 +25,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'public-perfil-doctor',
+    loadChildren: () =>
+      import('./pages/public-perfil-doctor/public-perfil-doctor.module').then(
+        (m) => m.PublicPerfilDoctorModule
+      ),
+  },
+  {
     path: 'dashboard',
     loadChildren: () =>
       import('./pages/doctor-profile/doctor-profile.module').then(
