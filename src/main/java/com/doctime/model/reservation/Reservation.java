@@ -1,7 +1,7 @@
 package com.doctime.model.reservation;
 
 import java.time.LocalDateTime;
-import java.util.Date;
+
 
 import com.doctime.model.doctor.DoctorEntity;
 import com.doctime.model.patient.PatientEntity;

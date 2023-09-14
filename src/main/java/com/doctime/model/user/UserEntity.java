@@ -23,6 +23,7 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false, unique = true)
+    @JsonIgnore
     private String email;
 
     @Column(nullable = false)

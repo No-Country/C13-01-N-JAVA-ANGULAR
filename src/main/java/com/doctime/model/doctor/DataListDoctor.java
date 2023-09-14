@@ -2,7 +2,6 @@ package com.doctime.model.doctor;
 
 import java.time.LocalDateTime;
 
-import com.doctime.model.location.Location;
 import com.doctime.model.user.UserEntity;
 
 public record DataListDoctor(

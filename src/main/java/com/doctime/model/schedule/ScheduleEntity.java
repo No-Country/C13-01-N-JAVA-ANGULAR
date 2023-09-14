@@ -6,6 +6,9 @@ import java.util.Set;
 
 import com.doctime.model.doctor.DoctorEntity;
 import com.doctime.model.timeRange.TimeRange;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -20,22 +23,29 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "tb_schedule")
 public class ScheduleEntity {
+
+    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(updatable = false)
     private LocalDate dayOfWeek;
+
+    @JsonIgnore
     @Column(updatable = false)
     private LocalDateTime created_at;
+
+    @JsonIgnore
     @Column
     private LocalDateTime update_at;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_doctor")
     private DoctorEntity doctor;
 
     @OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
-    private Set<TimeRange> timeRanges;
+    private Set<TimeRange> timeRange;
 
 }

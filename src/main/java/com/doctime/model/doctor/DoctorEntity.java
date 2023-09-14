@@ -2,8 +2,9 @@ package com.doctime.model.doctor;
 
 import java.time.LocalDateTime;
 
-import com.doctime.model.patient.DataUpdatePatient;
+
 import com.doctime.model.user.UserEntity;
+
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,11 +24,9 @@ public class DoctorEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Temporal(TemporalType.TIMESTAMP) // Utiliza TIMESTAMP para fecha y hora
     @Column(name = "fecha_creacion", updatable = false)
     private LocalDateTime createdAt;
 
-    @Temporal(TemporalType.TIMESTAMP) // Utiliza TIMESTAMP para fecha y hora
     @Column(name = "fecha_actualizacion")
     private LocalDateTime updatedAt;
 

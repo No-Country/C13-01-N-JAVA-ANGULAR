@@ -2,8 +2,7 @@ package com.doctime.model.reservation;
 
 import java.time.LocalDateTime;
 
-import com.doctime.model.doctor.DoctorEntity;
-import com.doctime.model.patient.PatientEntity;
+
 import com.doctime.model.status.EStatus;
 
 public record DataListReservation(

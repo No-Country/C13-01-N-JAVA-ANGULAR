@@ -16,8 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.doctime.model.patient.DataUpdatePatient;
-import com.doctime.model.patient.PatientEntity;
+
 import com.doctime.model.reservation.DataCreateReservation;
 import com.doctime.model.reservation.DataListReservation;
 import com.doctime.model.reservation.DataUpdateReservation;
