@@ -25,3 +25,15 @@ export interface User {
   email: string;
   role: string;
 }
+
+export interface DoctorRegister {
+  name: string;
+  lastname: string;
+  email: string;
+  password: string;
+  specialty: string;
+  phone: string;
+  address: string;
+  paymentTypes: string;
+  role: string;
+}
