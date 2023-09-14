@@ -13,17 +13,11 @@ import { CustomValidators } from 'src/app/shared/validators/custom.validators';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  public myForm = new FormGroup(
+  public myForm: FormGroup = new FormGroup(
     {
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.pattern(/^[a-zA-Z0-9]{8,}$/),
-      ]),
-      passwordConfirm: new FormControl('', [
-        Validators.required,
-        Validators.minLength(6),
-      ]),
+      password: new FormControl('', [Validators.required]),
+      passwordConfirm: new FormControl('', [Validators.required]),
     },
     {
       validators: [CustomValidators.passwordsMatching],
@@ -33,7 +27,6 @@ export class RegisterComponent {
   constructor(
     private notifySvc: NotifyService,
     private authSvc: AuthService,
-
     private router: Router
   ) {}
 
@@ -47,8 +40,8 @@ export class RegisterComponent {
       return;
     }
     const user: UserRegister = {
-      email: this.myForm.value.email ?? '',
-      password: this.myForm.value.password ?? '',
+      email: this.myForm.value.email,
+      password: this.myForm.value.password,
       role: 'PATIENT',
     };
 

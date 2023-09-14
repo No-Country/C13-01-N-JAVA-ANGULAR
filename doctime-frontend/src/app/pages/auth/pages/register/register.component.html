@@ -57,7 +57,7 @@
           >
         </div>
         <div class="input-container">
-          <label for="password">Confirma contraseña</label>
+          <label for="password">Confirmar contraseña</label>
           <input
             type="password"
             class="form-control"
@@ -77,17 +77,8 @@
             *ngIf="
               myForm.controls['password'].valid &&
               myForm.controls['passwordConfirm'].valid &&
-              myForm.controls.password.value ===
-                myForm.controls.passwordConfirm.value
-            "
-            class="form-text"
-          ></span>
-          <span
-            *ngIf="
-              myForm.controls['password'].valid &&
-              myForm.controls['passwordConfirm'].valid &&
-              myForm.controls.password.value !==
-                myForm.controls.passwordConfirm.value
+              myForm.controls['password'].value !==
+                myForm.controls['passwordConfirm'].value
             "
             class="form-text"
             >Contraseñas no coinciden</span
