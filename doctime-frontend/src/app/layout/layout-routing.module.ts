@@ -12,6 +12,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('../pages/home/home.module').then((m) => m.HomeModule),
       },
+      {
+        path: 'doctors',
+        loadChildren: () =>
+          import('../pages/doctors-list/doctor-list.module').then(
+            (m) => m.DoctorListModule
+          ),
+      },
     ],
   },
   { path: '**', redirectTo: '' },
