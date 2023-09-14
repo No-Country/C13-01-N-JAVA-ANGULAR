@@ -1,11 +1,10 @@
 package com.doctime.model.doctor;
 
 import java.time.LocalDateTime;
-import java.util.Set;
 
-import com.doctime.model.schedule.ScheduleEntity;
+
 import com.doctime.model.user.UserEntity;
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -44,8 +43,28 @@ public class DoctorEntity {
     @JoinColumn(name = "id_user")
     private UserEntity user;
 
-    // @OneToMany(mappedBy = "doctor", fetch = FetchType.EAGER, cascade =
-    // CascadeType.ALL)
-    // private Set<ScheduleEntity> scheduleEntity;
 
+     public void updateDoc(DataUpdateDoctor dataUpdateDoctor) {
+
+        if (dataUpdateDoctor.paymentTypes() != null) {
+            this.paymentTypes = dataUpdateDoctor.paymentTypes();
+        }
+        if (dataUpdateDoctor.reputation() != -1) {
+            this.reputation = dataUpdateDoctor.reputation();
+
+        }
+         if (dataUpdateDoctor.totalRatings() != -1) {
+            this.totalRatings = dataUpdateDoctor.totalRatings();
+        }
+
+        if (dataUpdateDoctor.user() != null) {
+            if (this.user != null) {
+                this.user.setName(dataUpdateDoctor.user().getName());
+                this.user.setLast_name(dataUpdateDoctor.user().getLast_name());
+                this.user.setDni(dataUpdateDoctor.user().getDni());
+                this.user.setGender(dataUpdateDoctor.user().getGender());
+                this.user.setBirthday(dataUpdateDoctor.user().getBirthday());
+            }
+        }
+}
 }

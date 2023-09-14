@@ -1,14 +1,14 @@
 package com.doctime.controllers;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,62 +17,46 @@ import org.springframework.web.bind.annotation.RestController;
 import com.doctime.model.doctor.DataListDoctor;
 import com.doctime.model.doctor.DataUpdateDoctor;
 import com.doctime.model.doctor.DoctorEntity;
-import com.doctime.model.schedule.DataCreateSchedule;
-import com.doctime.model.schedule.ScheduleEntity;
-import com.doctime.repository.DoctorRepository;
-import com.doctime.repository.ScheduleRepository;
-import com.doctime.service.CustomUserService;
-import com.doctime.service.DoctorService;
 
-import jakarta.validation.Valid;
+import com.doctime.repository.DoctorRepository;
+
+import jakarta.transaction.Transactional;
 
 @RestController
 @RequestMapping("/doctor")
 public class DoctorController {
 
     @Autowired
-    DoctorService doctorService;
-    @Autowired
-    DoctorRepository doctorRepository;
-    @Autowired
-    ScheduleRepository scheduleRepository;
-    @Autowired
-    CustomUserService customUserService;
-
-    @PostMapping("/schedule")
-    @PreAuthorize("hasRole('DOCTOR')")
-    public ResponseEntity<DataCreateSchedule> addSchedule(@Valid @RequestBody DataCreateSchedule dataCreateSchedule) {
-        Long id = customUserService.getCurrentCustomUser().getId_user();
-        DoctorEntity doctor = doctorRepository.findByUserId(id);
-        return ResponseEntity.ok(doctorService.saveSchedule(doctor, dataCreateSchedule));
-    }
-
-    @GetMapping("/schedule/{id}")
-    @PreAuthorize("hasRole('DOCTOR')")
-    public ResponseEntity<List<DataCreateSchedule>> getScheduleById() {
-        return ResponseEntity.ok(scheduleRepository.findAll().stream().map(DataCreateSchedule::new).toList());
-    }
+    private DoctorRepository doctorRepository;
 
     @GetMapping
-    @PreAuthorize("hasRole('DOCTOR')")
-    public ResponseEntity<List<DataListDoctor>> listDoctos() {
-        return ResponseEntity.ok(doctorRepository.findAll().stream().map(DataListDoctor::new).toList());
-    }
+  @PreAuthorize("hasRole('DOCTOR')")
+  public ResponseEntity<List<DataListDoctor>> listDoctors() {
+    return ResponseEntity.ok(doctorRepository.findAll().stream().map(DataListDoctor::new).toList());
+  }
 
-    @GetMapping("/{id}")
-    @PreAuthorize("hasRole('DOCTOR')")
-    public ResponseEntity<DataListDoctor> getDoctorById(@PathVariable(name = "id") Long id) {
-        DoctorEntity doctor = doctorRepository.getReferenceById(id);
-        return ResponseEntity.ok(new DataListDoctor(doctor));
-    }
+   @PutMapping
+  @Transactional
+  @PreAuthorize("hasRole('DOCTOR')")
+  public ResponseEntity<DataUpdateDoctor> updatedDoctor(@RequestBody @Validated DataUpdateDoctor dataUpdateDoctor) {
+    DoctorEntity doctor = doctorRepository.getReferenceById(dataUpdateDoctor.id());
+    doctor.updateDoc(dataUpdateDoctor);
 
-    @PutMapping
-    @PreAuthorize("hasRole('DOCTOR')")
-    public ResponseEntity<DataListDoctor> updateDoctor(@Valid @RequestBody DataUpdateDoctor dataUpdateDoctor) {
-        Long id = customUserService.getCurrentCustomUser().getId_user();
-        DoctorEntity doctor = doctorRepository.findByUserId(id);
+    return ResponseEntity.ok(dataUpdateDoctor);
 
-        DataListDoctor dataListDoctor = doctorService.updateDoctorUser(doctor, dataUpdateDoctor);
-        return ResponseEntity.ok(dataListDoctor);
-    }
+  }
+
+    @DeleteMapping("/{id}")
+  @Transactional
+  public ResponseEntity delete(@PathVariable Long id) {
+    DoctorEntity doctor = doctorRepository.getReferenceById(id);
+    doctorRepository.delete(doctor);
+    return ResponseEntity.noContent().build();
+  }
+
+
+
+   
+
+    
 }

@@ -2,6 +2,8 @@ package com.doctime.model.patient;
 
 import java.time.LocalDateTime;
 
+
+
 //import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 
 //import com.doctime.model.reservation.Reservation;
@@ -19,7 +21,8 @@ public record DataListPatient(
         this(patient.getId(),
                 patient.getBirthday(),
                 patient.getAddress(),
-                patient.getUser());
+                patient.getUser()
+                );
     }
 
 }

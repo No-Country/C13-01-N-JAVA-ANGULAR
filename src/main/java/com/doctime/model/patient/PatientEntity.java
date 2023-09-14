@@ -42,11 +42,9 @@ public class PatientEntity {
     @JoinColumn(name = "id_user")
     private UserEntity user;
 
-    public PatientEntity(DataCreatePatient dataCreatePatient) {
-        this.birthday = dataCreatePatient.birthday();
-        this.address = dataCreatePatient.address();
-        this.user = dataCreatePatient.user();
-    }
+    
+
+
 
     public void updatePati(DataUpdatePatient dataUpdatePatient) {
 
