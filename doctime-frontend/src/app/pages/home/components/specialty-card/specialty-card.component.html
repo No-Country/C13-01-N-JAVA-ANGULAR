@@ -1,0 +1,16 @@
+<article>
+  <div class="specialty-card">
+    <div class="specialty-card-image">
+      <img [src]="specialties.image" [alt]="specialties.name" />
+    </div>
+    <div class="specialty-card-content">
+      <h3 class="specialty-card-title">{{ specialties.name }}</h3>
+      <p class="specialty-card-description">{{ specialties.description }}</p>
+      <a
+        class="specialty-card-link"
+        [routerLink]="['/specialties', specialties.id]"
+        >Ver más <span class="arrow-right">→</span></a
+      >
+    </div>
+  </div>
+</article>

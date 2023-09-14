@@ -1,0 +1,577 @@
+<div class="container">
+  <div class="title">
+    <h3>Panel de paciente</h3>
+  </div>
+  <div class="appointments-list">
+    <div class="appointments-list-content">
+      <ng-container *ngIf="false">Sin citas</ng-container>
+      <ng-container *ngIf="true">
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Doctor</th>
+              <th>Consultorio</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>14/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 1</td>
+              <td
+                [ngClass]="{
+                  confirmed: true,
+                  pending: false,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Confirmada
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>14/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 1</td>
+              <td
+                [ngClass]="{
+                  confirmed: true,
+                  pending: false,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Confirmada
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>12/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. José Quiñonez</td>
+              <td>Consultorio 2</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: false,
+                  rejected: false,
+                  cancelled: true
+                }"
+              >
+                Cancelada
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/12/2023</td>
+              <td>12:00</td>
+              <td>Dr. Juan Perez</td>
+              <td>Consultorio 3</td>
+              <td
+                [ngClass]="{
+                  confirmed: false,
+                  pending: true,
+                  rejected: false,
+                  cancelled: false
+                }"
+              >
+                Pendiente
+              </td>
+              <td>
+                <button class="btn btn-primary">Ver</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-container>
+    </div>
+  </div>
+</div>
