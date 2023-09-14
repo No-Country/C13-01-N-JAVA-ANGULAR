@@ -1,18 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'doctime', pathMatch: 'full' },
   {
-    path: 'login',
+    path: 'auth',
     loadChildren: () =>
-      import('./pages/login/login.module').then((m) => m.LoginModule),
+      import('./pages/auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: 'profile',
     loadChildren: () =>
       import('./pages/patient-profile/patient-profile.module').then(
         (m) => m.PatientProfileModule
+      ),
+    canMatch: [AuthGuard],
+  },
+  {
+    path: 'register',
+    loadChildren: () =>
+      import('./pages/auth/pages/register/register.module').then(
+        (m) => m.RegisterModule
       ),
   },
   {
@@ -21,6 +30,7 @@ const routes: Routes = [
       import('./pages/doctor-profile/doctor-profile.module').then(
         (m) => m.DoctorProfileModule
       ),
+    canActivate: [AuthGuard],
   },
   {
     path: 'doctime',
@@ -29,7 +39,6 @@ const routes: Routes = [
   },
   { path: '**', redirectTo: 'doctime' },
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
