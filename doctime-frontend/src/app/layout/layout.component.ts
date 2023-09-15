@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './layout.component.html',
   styles: [],
 })
-export class LayoutComponent {
-  show = true;
-}
+export class LayoutComponent {}

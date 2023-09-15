@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { NotifyService } from 'src/app/services/notify.service';
 import { Reservation, Status } from 'src/app/shared/models/reservation.model';
 import { ReservationService } from 'src/app/services/reservation.service';
-import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-reservation-form',
@@ -18,8 +17,7 @@ export class ReservationFormComponent {
   constructor(
     private router: Router,
     private notifySvc: NotifyService,
-    private reservationSvc: ReservationService,
-    private authSvc: AuthService
+    private reservationSvc: ReservationService
   ) {
     this.patientId = parseInt(localStorage.getItem('id') ?? '0');
     console.log(this.patientId);
@@ -54,8 +52,6 @@ export class ReservationFormComponent {
       return;
     }
 
-    console.log(this.reservationForm.value);
-
     const date = this.formatDate(this.reservationForm.value.date);
     const reservation: Reservation = {
       title: this.reservationForm.value.title,
@@ -69,8 +65,6 @@ export class ReservationFormComponent {
       },
       status: Status.PENDING,
     };
-
-    console.log(reservation);
 
     this.reservationSvc.createReservation(reservation).subscribe({
       next: () => {

@@ -22,6 +22,7 @@ export interface User {
 }
 
 export interface DoctorRegister {
+  id?: number;
   name: string;
   lastname: string;
   email: string;
