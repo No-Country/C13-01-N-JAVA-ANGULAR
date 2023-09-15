@@ -1,0 +1,53 @@
+<section>
+  <div class="doctor-container">
+    <div class="profile-top">
+      <div class="profile-top-left">
+        <div class="img-container">
+          <img [src]="doctor?.image" alt="Doctor Image" class="profile-image" />
+        </div>
+        <div class="data-container">
+          <h1>{{ doctor?.hospital }}</h1>
+          <h2>{{ doctor?.speciality | titlecase }}</h2>
+        </div>
+      </div>
+      <div class="profile-top-right">
+        <div class="rest-data-title">
+          <h3>{{ doctor?.name }} {{ doctor?.last_name }}</h3>
+          <p>
+            {{ doctor?.address }}, {{ doctor?.country }} - {{ doctor?.city }}
+          </p>
+        </div>
+        <div class="res-data-content">
+          <div class="res-data-content-item">
+            <p class="bold">Teléfono:</p>
+            <p>{{ doctor?.phone }}</p>
+          </div>
+          <div class="res-data-content-item">
+            <p class="bold">Email:</p>
+            <p>{{ doctor?.email }}</p>
+          </div>
+          <div class="res-data-content-item">
+            <p class="bold">Horario:</p>
+            <p>Lunes a Viernes de 7:00 a 18:00</p>
+          </div>
+          <div class="res-data-content-item">
+            <p class="bold">Experiencia:</p>
+            <p>{{ doctor?.experience }}</p>
+          </div>
+          <div class="res-data-content-bio">
+            <p class="bold">Biografía:</p>
+            <p class="content-bio">{{ doctor?.bio }}</p>
+          </div>
+        </div>
+        <div class="btn-reservation">
+          <button class="btn-form" (click)="openReservationForm()">
+            Reservar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-reservation-form [show]="show"></app-reservation-form>
+<!-- (click)="openReservationForm()" -->

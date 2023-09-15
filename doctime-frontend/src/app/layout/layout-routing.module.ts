@@ -9,6 +9,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
+        redirectTo: 'home',
+        pathMatch: 'full',
+      },
+      {
+        path: 'home',
         loadChildren: () =>
           import('../pages/home/home.module').then((m) => m.HomeModule),
       },
@@ -18,6 +23,13 @@ const routes: Routes = [
           import('../pages/doctors-list/doctor-list.module').then(
             (m) => m.DoctorListModule
           ),
+      },
+      {
+        path: 'doctor/:id',
+        loadChildren: () =>
+          import(
+            '../pages/public-perfil-doctor/public-perfil-doctor.module'
+          ).then((m) => m.PublicPerfilDoctorModule),
       },
     ],
   },

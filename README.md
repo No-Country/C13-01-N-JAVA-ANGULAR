@@ -22,7 +22,7 @@ DocTime es una innovadora aplicación diseñada para simplificar la programació
 
 2. **Registro de Pacientes:** Los pacientes pueden crear sus propios perfiles personales, donde pueden almacenar su información médica, como historiales clínicos, alergias y medicamentos actuales. Esto facilita el proceso de reserva de citas, ya que los médicos pueden acceder a esta información para brindar un mejor tratamiento.
 
-3. **Búsqueda de Médicos:** Los pacientes pueden buscar médicos por especialidad, ubicación o nombre. La aplicación ofrece una amplia lista de profesionales de la salud en diferentes campos, lo que permite a los pacientes encontrar al médico adecuado para sus necesidades.
+3. **Búsqueda de Médicos:** Los pacientes pueden buscar médicos por especialidad. La aplicación ofrece una amplia lista de profesionales de la salud en diferentes campos, lo que permite a los pacientes encontrar al médico adecuado para sus necesidades.
 
 4. **Reserva de Citas:** Una vez que un paciente ha encontrado al médico adecuado, puede seleccionar una fecha y hora disponible para programar una cita. El sistema se asegura de que no se superpongan las citas y envía recordatorios automáticos a ambos, médico y paciente, para evitar olvidos.
 

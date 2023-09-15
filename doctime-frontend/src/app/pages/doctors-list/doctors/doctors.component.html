@@ -32,7 +32,10 @@
               class="card__header--image"
             />
             <div class="card__header--text">
-              <a routerLink="" class="card__header--name">
+              <a
+                [routerLink]="['/doctime/doctor', doctor.id]"
+                class="card__header--name"
+              >
                 Dr. {{ doctor.name }} {{ doctor.last_name }}
               </a>
               <span class="card__header--specility">{{

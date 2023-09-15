@@ -6,6 +6,7 @@ import { DoctorsComponent } from './doctors/doctors.component';
 import { SharedModule } from '../../shared/shared.module';
 import { FilterPipe } from './pipes/filter.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [DoctorsComponent, FilterPipe],
@@ -14,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     DoctorListRoutingModule,
     SharedModule,
+    RouterModule,
   ],
 })
 export class DoctorListModule {}
