@@ -1,0 +1,78 @@
+<main>
+  <div class="container container-hero">
+    <img class="bg-hero" src="assets/images/bg-hero.svg" alt="backgroung" />
+    <div class="hero">
+      <div class="hero-left">
+        <h1>Encuentra tu especialista y agenda tu cita</h1>
+        <p>
+          Bienvenido a DocTime, tu plataforma de programación de citas médicas
+          en línea. Conecta con médicos de confianza y programa tus citas con
+          facilidad. ¡Tu salud está en buenas manos!
+        </p>
+      </div>
+      <div class="hero-right">
+        <div class="img-container">
+          <img src="assets/images/hero-avatar-1.webp" alt="hero-avatar" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container container-specialty">
+    <div class="carousel-specialties">
+      <app-specialty-list></app-specialty-list>
+    </div>
+  </div>
+
+  <div class="container container-cta">
+    <div class="cta">
+      <div class="cta-left">
+        <div class="img-container">
+          <img src="assets/images/cta.webp" alt="cta avatar" />
+        </div>
+      </div>
+      <div class="cta-right">
+        <div class="cta-right-content">
+          <h2>
+            ¿Eres profesional de la salud? Comienza a atraer nuevos pacientes
+          </h2>
+          <p>
+            DocTime te ofrece la oportunidad de expandir tu práctica médica y
+            llegar a nuevos pacientes sin fronteras geográficas. Únete a nuestra
+            plataforma para conectarte con pacientes que buscan tus habilidades
+            médicas en línea. ¡Amplía tu alcance y haz crecer tu carrera médica
+            con DocTime!
+          </p>
+          <p>
+            ¡La revolución de la atención médica en línea te espera! Regístrate
+            hoy mismo en DocTime y aprovecha todas las ventajas que ofrecemos a
+            médicos comprometidos como tú.
+          </p>
+        </div>
+        <button class="btn-form" [routerLink]="['/auth/register-doctor']">
+          Regristrarme
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container container-doctors">
+    <div class="title-doctors">
+      <h2>Conoce a nuestros especialistas</h2>
+    </div>
+
+    <div class="carousel-doctors">
+      <app-doctor-list></app-doctor-list>
+    </div>
+  </div>
+
+  <div class="container container-opinions">
+    <div class="title-opinions">
+      <h2>Opiniones de nuestros pacientes</h2>
+    </div>
+
+    <div class="carousel-opinions">
+      <app-opinion-list></app-opinion-list>
+    </div>
+  </div>
+</main>

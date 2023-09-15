@@ -1,0 +1,12 @@
+<div class="search">
+  <div class="search__content">
+    <input
+      type="text"
+      [placeholder]="placeholder"
+      class="search__content--input"
+      (keyup.enter)="emitValue(txtInput.value)"
+      #txtInput
+    />
+    <i class="fas fa-search search__content--icon"></i>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<article>
+  <div class="doctor-card">
+    <div class="doctor-card-image">
+      <img [src]="doctor.image" alt="Foto del doctor" />
+    </div>
+    <div class="doctor-card-content">
+      <div class="doctor-card-content-title">
+        <h2 class="doctor-card-title">
+          {{ doctor.name }} {{ doctor.last_name }}
+        </h2>
+      </div>
+      <div class="doctor-card-content-description">
+        <p class="doctor-card-specialty">{{ doctor.specialty }}</p>
+      </div>
+    </div>
+  </div>
+</article>

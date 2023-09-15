@@ -1,0 +1,69 @@
+<section class="list">
+  <div class="list__search">
+    <!-- <app-tabs
+      [tabs]="tabs"
+      (selectedTabsChange)="tabsChange($event)"
+    ></app-tabs> -->
+    <div class="search">
+      <div class="search__content">
+        <input
+          type="text"
+          placeholder="Buscar por Especialidad"
+          class="search__content--input"
+          #txtSearch
+          (keyup)="searchSpeciality(txtSearch.value)"
+        />
+        <i class="fas fa-search search__content--icon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="list__content">
+    <div class="card">
+      <h1 class="card__title">Resultado de Busqueda</h1>
+      <div class="card__container">
+        <div
+          class="card__content"
+          *ngFor="let doctor of doctors | filter: search"
+        >
+          <div class="card__header">
+            <img
+              [src]="doctor.image"
+              alt="avatar"
+              class="card__header--image"
+            />
+            <div class="card__header--text">
+              <a
+                [routerLink]="['/doctime/doctor', doctor.id]"
+                class="card__header--name"
+              >
+                Dr. {{ doctor.name }} {{ doctor.last_name }}
+              </a>
+              <span class="card__header--specility">{{
+                doctor.speciality | titlecase
+              }}</span>
+            </div>
+          </div>
+          <div class="card__body">
+            <div class="card__body--box" *ngIf="activeTabsIndex === 0">
+              <i class="fa-solid fa-location-dot"></i>
+              <p class="card__body--street">{{ doctor.address }}</p>
+            </div>
+            <div class="card__body--box">
+              <p>Especialidades</p>
+              <p class="card__body--street">
+                {{ doctor.speciality | titlecase }}
+              </p>
+            </div>
+            <div class="card__body--box">
+              <p>Sobre mi</p>
+              <p class="card__body--description">
+                {{ doctor.bio | slice: 0 : 100 }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="list__content--maps"></div>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+.status__tabs--container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1px solid var(--color-text-attenuate);
+  max-width: 1216px;
+  margin: 0 auto;
+  height: 100%;
+
+  .status__link {
+    position: relative;
+    font-size: 15px;
+    padding: 10px;
+    cursor: pointer;
+    color: var(--color-bg-sidebar);
+    float: left;
+    line-height: normal;
+
+    &:nth-child(3) {
+      margin-right: 0;
+    }
+
+    &.active {
+      color: var(--color-sidebar-active);
+      border-bottom: 3px solid var(--color-sidebar-active);
+      // transition: ease-in-out .3s;
+      font-weight: 600;
+    }
+  }
+}

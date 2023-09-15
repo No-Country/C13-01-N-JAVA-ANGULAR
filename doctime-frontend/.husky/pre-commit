@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+cd doctime-frontend
+#npm run test:headless
+#npm run lint
+#npm run prettier
+npx lint-staged

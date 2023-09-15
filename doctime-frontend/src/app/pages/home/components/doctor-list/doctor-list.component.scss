@@ -1,0 +1,16 @@
+.container-doctors {
+  margin-top: 3rem;
+
+  .doctor-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-doctors {
+    margin-top: 1rem;
+  }
+}

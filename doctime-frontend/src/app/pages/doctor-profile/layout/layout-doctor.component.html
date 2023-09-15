@@ -1,0 +1,77 @@
+<header class="header">
+  <div class="header__menu">
+    <span>Menu</span>
+  </div>
+  <div class="header__user">
+    <div class="header__user--data">
+      <span class="header__user--name">Dr.Roberto gomez bolaños</span>
+    </div>
+    <div class="header__user--img">
+      <img
+        src="assets/images/avatar/avatar.svg"
+        alt="doctor"
+        class="header__user--img"
+      />
+    </div>
+  </div>
+</header>
+<div class="sidebar">
+  <nav class="sidebar__container">
+    <div class="sidebar__content">
+      <div class="sidebar__logo">
+        <img
+          src="assets/images/logo.svg"
+          alt="logo-doctime"
+          class="sidebar__logo--img"
+        />
+        <div class="sidebar__data">
+          <span class="sidebar__data--title">DOCTIME</span>
+          <span class="sidebar__data--text">Health Center</span>
+        </div>
+      </div>
+      <div class="menu">
+        <div class="menu__container">
+          <a
+            routerLink="/dashboard/doctor/home"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="menu__links"
+          >
+            <i class="fa-solid fa-layer-group menu__links--icon"></i>
+            Dashboard</a
+          >
+          <a
+            routerLink="/dashboard/doctor/patient-panel"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="menu__links"
+          >
+            <i class="fa-solid fa-hospital-user menu__links--icon"></i
+            >Pacientes</a
+          >
+          <a
+            routerLink="/dashboard/doctor/profile"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="menu__links"
+          >
+            <i class="fa-solid fa-user menu__links--icon"></i>Mi Perfil</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="sidebar__bottom">
+      <a
+        class="menu__links sidebar__logout"
+        (click)="logout()"
+        (keyup.enter)="logout()"
+        aria-hidden="true"
+        ><i class="fa-solid fa-right-from-bracket menu__links--icon"></i> Cerrar
+        Sessión
+      </a>
+    </div>
+  </nav>
+</div>
+<main class="main">
+  <router-outlet></router-outlet>
+</main>

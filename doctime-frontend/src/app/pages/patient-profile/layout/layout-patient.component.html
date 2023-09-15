@@ -1,0 +1,63 @@
+<div class="layout-container">
+  <div class="content">
+    <div class="header">
+      <div class="header-left">
+        <div class="logo">
+          <img src="assets/images/logo.svg" alt="logo doctime" />
+        </div>
+        <div class="title">
+          <h2>Configuración de la cuenta</h2>
+          <p>Nombre: Adolfo Aguilar Soto</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <button class="btn btn-primary" [routerLink]="['/doctime']">
+          Volver
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="content body-container">
+    <nav class="layout layout-sidebar">
+      <div class="nav-container">
+        <ul>
+          <li>
+            <a
+              class="btn btn-sidebar"
+              [routerLink]="['/profile/patient/settings']"
+              routerLinkActive="active"
+              >Mi Perfil</a
+            >
+          </li>
+          <li>
+            <a
+              class="btn btn-sidebar"
+              [routerLink]="['/profile/patient/appointments']"
+              routerLinkActive="active"
+              >Mis Citas</a
+            >
+          </li>
+          <li>
+            <a
+              class="btn btn-sidebar"
+              [routerLink]="['/profile/patient/security']"
+              routerLinkActive="active"
+              >Seguridad</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-actions">
+        <button class="btn btn-danger" (click)="logout()">Cerrar Sesión</button>
+      </div>
+    </nav>
+
+    <div class="layout layout-body">
+      <div class="layout-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
