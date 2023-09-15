@@ -31,7 +31,6 @@ export class RegisterComponent {
   ) {}
 
   onSubmit() {
-    console.log(this.myForm.value);
     if (!this.myForm.valid) {
       this.notifySvc.showError(
         'Verifica tus datos',
