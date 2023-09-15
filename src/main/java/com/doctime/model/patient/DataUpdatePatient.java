@@ -6,7 +6,6 @@ import com.doctime.model.user.UserEntity;
 
 
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 
 public record DataUpdatePatient(
         @NotNull Long id,

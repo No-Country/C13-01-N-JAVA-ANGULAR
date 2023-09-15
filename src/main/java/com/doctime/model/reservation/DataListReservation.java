@@ -16,7 +16,7 @@ public record DataListReservation(
     Long doctor,
     Long patient
 ) {
-    public DataListReservation(Reservation reservation){
+    public DataListReservation(ReservationEntity reservation){
         this(reservation.getId(),
         reservation.getDate(),
         reservation.getTitle(),

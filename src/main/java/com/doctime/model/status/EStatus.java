@@ -5,6 +5,10 @@ public enum EStatus {
     REJECT,
     IMPROVED,
     CANCELED,
-    ATTENDED
+    ATTENDED;
+
+ 
+
+   
     
 }

@@ -30,7 +30,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Reservation {
+public class ReservationEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -65,7 +65,7 @@ public class Reservation {
     @JoinColumn(name = "doctor_id", referencedColumnName = "id")
     private DoctorEntity doctor;
 
-    public Reservation(DataCreateReservation dataCreateReservation) {
+    public ReservationEntity(DataCreateReservation dataCreateReservation) {
         this.date = dataCreateReservation.date();
         this.title = dataCreateReservation.title();
         this.status = dataCreateReservation.status();

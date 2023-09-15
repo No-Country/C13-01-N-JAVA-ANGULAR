@@ -1,6 +1,7 @@
 package com.doctime.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.doctime.model.doctor.DataListDoctor;
 import com.doctime.model.doctor.DataUpdateDoctor;
 import com.doctime.model.doctor.DoctorEntity;
-
+import com.doctime.model.reservation.DataListReservation;
 import com.doctime.repository.DoctorRepository;
+import com.doctime.repository.ReservationRepository;
 
 import jakarta.transaction.Transactional;
 
@@ -28,6 +30,8 @@ public class DoctorController {
 
     @Autowired
     private DoctorRepository doctorRepository;
+
+  
 
     @GetMapping
   @PreAuthorize("hasRole('DOCTOR')")
@@ -55,8 +59,11 @@ public class DoctorController {
   }
 
 
+  
+}
+
+
 
    
 
     
-}
