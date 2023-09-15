@@ -55,13 +55,11 @@ public class DoctorController {
     }
 
     @GetMapping
-    @PreAuthorize("hasRole('DOCTOR')")
     public ResponseEntity<List<DataListDoctor>> listDoctos() {
         return ResponseEntity.ok(doctorRepository.findAll().stream().map(DataListDoctor::new).toList());
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('DOCTOR')")
     public ResponseEntity<DataListDoctor> getDoctorById(@PathVariable(name = "id") Long id) {
         DoctorEntity doctor = doctorRepository.getReferenceById(id);
         return ResponseEntity.ok(new DataListDoctor(doctor));
