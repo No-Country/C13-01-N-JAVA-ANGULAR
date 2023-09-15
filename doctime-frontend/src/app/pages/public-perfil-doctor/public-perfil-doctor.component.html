@@ -1,54 +1,53 @@
-<div class="container">
-  <div class="titulo">
-    <h1>Doctor</h1>
-    <div class="profile">
-      <div class="profile-card">
-        <div class="card">
-          <img src="assets/images/doctors/bruno-rodrigues.jpg" alt="Avatar" />
+<section>
+  <div class="doctor-container">
+    <div class="profile-top">
+      <div class="profile-top-left">
+        <div class="img-container">
+          <img [src]="doctor?.image" alt="Doctor Image" class="profile-image" />
         </div>
-        <div class="profile-description">
-          <p>
-            Soy un médico especialista altamente comprometido con la excelencia
-            en la atención médica. Mi pasión por la medicina y mi búsqueda
-            constante de conocimiento me han llevado a convertirme en un experto
-            en mi área de especialización.
-          </p>
+        <div class="data-container">
+          <h1>{{ doctor?.hospital }}</h1>
+          <h2>{{ doctor?.speciality | titlecase }}</h2>
         </div>
       </div>
-      <div class="col">
-        <div class="profile-description">
+      <div class="profile-top-right">
+        <div class="rest-data-title">
+          <h3>{{ doctor?.name }} {{ doctor?.last_name }}</h3>
           <p>
-            Mi conocimiento profundo en mi campo es el resultado de años de
-            educación y experiencia clínica. Estoy constantemente actualizado
-            sobre los últimos avances médicos y las mejores prácticas en mi
-            especialidad para brindar el tratamiento más efectivo y actualizado.
-            Una de mis cualidades distintivas es mi empatía. Comprendo que cada
-            paciente es único y enfrenta desafíos y preocupaciones específicas.
-            Trabajo arduamente para establecer conexiones personales con mis
-            pacientes y sus familias, creando un ambiente de confianza y
-            comodidad en el consultorio médico.
+            {{ doctor?.address }}, {{ doctor?.country }} - {{ doctor?.city }}
           </p>
         </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <div class="profile-description">
-          <h2>Horarios disponibles</h2>
-
-          <div class="enviar">
-            <button class="btn btn-success shadow-lg">Reservar</button>
+        <div class="res-data-content">
+          <div class="res-data-content-item">
+            <p class="bold">Teléfono:</p>
+            <p>{{ doctor?.phone }}</p>
           </div>
+          <div class="res-data-content-item">
+            <p class="bold">Email:</p>
+            <p>{{ doctor?.email }}</p>
+          </div>
+          <div class="res-data-content-item">
+            <p class="bold">Horario:</p>
+            <p>Lunes a Viernes de 7:00 a 18:00</p>
+          </div>
+          <div class="res-data-content-item">
+            <p class="bold">Experiencia:</p>
+            <p>{{ doctor?.experience }}</p>
+          </div>
+          <div class="res-data-content-bio">
+            <p class="bold">Biografía:</p>
+            <p class="content-bio">{{ doctor?.bio }}</p>
+          </div>
+        </div>
+        <div class="btn-reservation">
+          <button class="btn-form" (click)="openReservationForm()">
+            Reservar
+          </button>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- Hola
-<h2>{{ oneDoctor?.name }}</h2>
-<p>{{ oneDoctor?.last_name }}</p>
-<p>{{ oneDoctor?.speciality }}</p>
-<p>{{ oneDoctor?.email }}</p>
-<p>{{ oneDoctor?.phone }}</p>
- -->
+<app-reservation-form [show]="show"></app-reservation-form>
+<!-- (click)="openReservationForm()" -->

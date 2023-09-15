@@ -21,6 +21,10 @@ export class ReservationFormComponent {
   ) {
     this.patientId = parseInt(localStorage.getItem('id') ?? '0');
     console.log(this.patientId);
+
+    this.reservationSvc.showModal$.subscribe((res) => {
+      this.show = res;
+    });
   }
 
   reservationForm: FormGroup = new FormGroup({
@@ -30,7 +34,7 @@ export class ReservationFormComponent {
   });
 
   closeForm() {
-    this.show = false;
+    this.reservationSvc.changeShowModal();
   }
 
   formatDate(date: string): string {
