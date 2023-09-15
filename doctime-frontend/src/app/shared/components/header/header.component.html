@@ -22,25 +22,30 @@
             Doctores
           </a>
         </li>
-        <li>
-          <a [routerLink]="['/doctime/specialty']" routerLinkActive="active">
-            Especialidades
-          </a>
+        <li *ngIf="isLoged">
+          <a [routerLink]="['/profile']" routerLinkActive="active"> Perfil </a>
         </li>
       </ul>
     </nav>
 
     <div class="header-actions">
       <ul>
-        <li>
+        <li *ngIf="!isLoged">
           <a [routerLink]="['/auth/login']" routerLinkActive="active"
             >Iniciar Sesión</a
           >
         </li>
-        <li>
+        <li *ngIf="!isLoged">
           <a [routerLink]="['/auth/register']" routerLinkActive="active"
             >Registrarse</a
           >
+        </li>
+        <li>
+          <ng-container *ngIf="isLoged">
+            <a (click)="logout()" (keyup.enter)="logout()" aria-hidden="true"
+              >Cerrar Sesión</a
+            >
+          </ng-container>
         </li>
       </ul>
     </div>

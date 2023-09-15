@@ -6,7 +6,7 @@ import {
   UserLogin,
   UserRegister,
 } from '../shared/models/auth.model';
-import { Observable, of, tap, map, catchError } from 'rxjs';
+import { Observable, of, tap, map, catchError, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -15,12 +15,25 @@ export class AuthService {
   private apiUrl = 'http://localhost:8080';
   public id?: number;
   public token?: string;
+  private isLogedIn = new BehaviorSubject<boolean>(false);
+  public isLogedIn$ = this.isLogedIn.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    if (localStorage.getItem('id')) {
+      this.id = Number(localStorage.getItem('id'));
+    }
+    if (localStorage.getItem('logedin')) {
+      this.isLogedIn.next(true);
+    }
+  }
 
   get currentUserId() {
     if (!this.id) return undefined;
     return this.id;
+  }
+
+  isLoged(status: boolean) {
+    this.isLogedIn.next(status);
   }
 
   decodeToken(token: string) {
@@ -35,10 +48,18 @@ export class AuthService {
       tap((res) => {
         this.id = res.id;
         localStorage.setItem('id', res.id.toString());
+        this.isLoged(true);
+        if (this.isLogedIn$) {
+          localStorage.setItem('logedin', this.isLogedIn$.toString());
+        }
       }),
       tap((res) => {
         this.token = res.token;
         localStorage.setItem('token', res.token);
+        this.isLoged(true);
+        if (this.isLogedIn$) {
+          localStorage.setItem('logedin', this.isLogedIn.toString());
+        }
       })
     );
   }
@@ -48,10 +69,18 @@ export class AuthService {
       tap((res) => {
         this.id = res.id;
         localStorage.setItem('id', res.id.toString());
+        this.isLoged(true);
+        if (this.isLogedIn$) {
+          localStorage.setItem('logedin', this.isLogedIn$.toString());
+        }
       }),
       tap((res) => {
         this.token = res.token;
         localStorage.setItem('token', res.token);
+        this.isLoged(true);
+        if (this.isLogedIn$) {
+          localStorage.setItem('logedin', this.isLogedIn$.toString());
+        }
       })
     );
   }
@@ -76,5 +105,6 @@ export class AuthService {
     this.id = undefined;
     this.token = undefined;
     localStorage.clear();
+    this.isLoged(false);
   }
 }

@@ -5,6 +5,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { SearchComponent } from './components/search/search.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { SearchComponent } from './components/search/search.component';
     TabsComponent,
     SearchComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, HttpClientModule],
   exports: [HeaderComponent, FooterComponent, TabsComponent, SearchComponent],
 })
 export class SharedModule {}
