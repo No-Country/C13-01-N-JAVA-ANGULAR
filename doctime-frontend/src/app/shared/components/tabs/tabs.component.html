@@ -1,13 +1,14 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
 <div class="status__tabs">
   <ul class="status__tabs--container">
-    <li>
-      <a class="status__link"> Datos</a>
-    </li>
-    <li>
-      <a class="status__link"> Especialidades</a>
-    </li>
-    <li>
-      <a class="status__link">Experiencia </a>
+    <li
+      *ngFor="let tabs of tabs; let sr = index"
+      (click)="onTabClick(sr)"
+      (keypress)="handleTabKeydown($event, sr)"
+    >
+      <a class="status__link" [ngClass]="activeTabs === sr ? 'active' : ''">
+        {{ tabs }}</a
+      >
     </li>
     <div class="line"></div>
   </ul>
