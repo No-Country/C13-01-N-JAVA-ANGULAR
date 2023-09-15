@@ -2,9 +2,11 @@ package com.doctime.model.doctor;
 
 import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Autowired;
 
+import com.doctime.model.specialty.Specialty;
 import com.doctime.model.user.UserEntity;
-
+import com.doctime.repository.SpecialtyRepository;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -43,20 +45,24 @@ public class DoctorEntity {
     @JoinColumn(name = "id_user")
     private UserEntity user;
 
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = true)
+    @JoinColumn(name = "id_specialty", nullable = true)
+    private Specialty specialty;
 
-     public void updateDoc(DataUpdateDoctor dataUpdateDoctor) {
 
+        
+
+    public void updateDoc(DataUpdateDoctor dataUpdateDoctor) {
         if (dataUpdateDoctor.paymentTypes() != null) {
             this.paymentTypes = dataUpdateDoctor.paymentTypes();
         }
         if (dataUpdateDoctor.reputation() != -1) {
             this.reputation = dataUpdateDoctor.reputation();
-
         }
-         if (dataUpdateDoctor.totalRatings() != -1) {
+        if (dataUpdateDoctor.totalRatings() != -1) {
             this.totalRatings = dataUpdateDoctor.totalRatings();
         }
-
+    
         if (dataUpdateDoctor.user() != null) {
             if (this.user != null) {
                 this.user.setName(dataUpdateDoctor.user().getName());
@@ -66,5 +72,20 @@ public class DoctorEntity {
                 this.user.setBirthday(dataUpdateDoctor.user().getBirthday());
             }
         }
-}
+    
+        if (dataUpdateDoctor.specialty() != null) {
+            if (this.specialty != null) {
+                // Actualiza el nombre de la especialidad si se proporciona en dataUpdateDoctor
+                if (dataUpdateDoctor.specialty().getName() != null) {
+                    this.specialty.setName(dataUpdateDoctor.specialty().getName());
+                }
+            } else {
+                // Si no hay una especialidad actual, verifica si se proporciona en dataUpdateDoctor y crea una nueva
+                if (dataUpdateDoctor.specialty().getName() != null) {
+                    this.specialty = new Specialty(dataUpdateDoctor.specialty().getName());
+                }
+            }
+        }
+    }
+    
 }

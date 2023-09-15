@@ -2,6 +2,7 @@ package com.doctime.model.doctor;
 
 import java.time.LocalDateTime;
 
+import com.doctime.model.specialty.Specialty;
 import com.doctime.model.user.UserEntity;
 
 public record DataListDoctor(
@@ -11,7 +12,8 @@ public record DataListDoctor(
     String paymentTypes,
     double reputation,
     int totalRatings,
-    UserEntity user
+    UserEntity user,
+    Specialty specialty
 
 ) {
     public DataListDoctor(DoctorEntity doctor){
@@ -21,7 +23,8 @@ public record DataListDoctor(
         doctor.getPaymentTypes(),
         doctor.getReputation(),
         doctor.getTotalRatings(),
-        doctor.getUser()
+        doctor.getUser(),
+        doctor.getSpecialty()
         
         );
     }

@@ -20,4 +20,8 @@ public class Specialty {
 private long id;
 private String name;
 
+
+public Specialty(String name) {
+    this.name = name;
+}
 }

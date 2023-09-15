@@ -1,5 +1,6 @@
 package com.doctime.model.doctor;
 
+import com.doctime.model.specialty.Specialty;
 import com.doctime.model.user.UserEntity;
 
 import jakarta.validation.constraints.NotNull;
@@ -9,7 +10,8 @@ public record DataUpdateDoctor(
         String paymentTypes,
         double reputation,
         int totalRatings,
-        UserEntity user
+        UserEntity user,
+        Specialty specialty
 ) {
 
 }
