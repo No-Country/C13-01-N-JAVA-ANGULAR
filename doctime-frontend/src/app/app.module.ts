@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { RegisterModule } from './pages/auth/pages/register/register.module';
-import { PublicPerfilDoctorModule } from './pages/public-perfil-doctor/public-perfil-doctor.module';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,7 +18,6 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     RegisterModule,
-    PublicPerfilDoctorModule,
     HttpClientModule,
   ],
   providers: [],

@@ -15,3 +15,10 @@ export interface Doctor {
   bio: string;
   image: string;
 }
+
+export interface DoctorCardHome {
+  name: string;
+  last_name: string;
+  specialty: string;
+  image: string;
+}

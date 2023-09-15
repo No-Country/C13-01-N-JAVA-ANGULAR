@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { SpecialtyCardHome } from '../../../../shared/models/opinion.model';
 
 @Component({
   selector: 'app-specialty-card',
@@ -6,10 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./specialty-card.component.scss'],
 })
 export class SpecialtyCardComponent {
-  specialties = {
-    image: '../../../../../assets/images/specialties/odontologia-1.svg',
-    name: 'Odontología',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    id: 1,
-  };
+  @Input() specialty!: SpecialtyCardHome;
 }
