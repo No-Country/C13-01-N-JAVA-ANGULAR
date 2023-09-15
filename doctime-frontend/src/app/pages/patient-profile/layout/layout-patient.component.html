@@ -3,7 +3,7 @@
     <div class="header">
       <div class="header-left">
         <div class="logo">
-          <img src="../../../../assets/images/logo.svg" alt="logo doctime" />
+          <img src="assets/images/logo.svg" alt="logo doctime" />
         </div>
         <div class="title">
           <h2>Configuración de la cuenta</h2>
@@ -11,7 +11,9 @@
         </div>
       </div>
       <div class="header-right">
-        <button class="btn btn-primary">Cerrar</button>
+        <button class="btn btn-primary" [routerLink]="['/doctime']">
+          Volver
+        </button>
       </div>
     </div>
   </div>
@@ -21,19 +23,26 @@
       <div class="nav-container">
         <ul>
           <li>
-            <a class="btn btn-sidebar" routerLink="/profile/patient/settings"
+            <a
+              class="btn btn-sidebar"
+              [routerLink]="['/profile/patient/settings']"
+              routerLinkActive="active"
               >Mi Perfil</a
             >
           </li>
           <li>
             <a
               class="btn btn-sidebar"
-              routerLink="/profile/patient/appointments"
+              [routerLink]="['/profile/patient/appointments']"
+              routerLinkActive="active"
               >Mis Citas</a
             >
           </li>
           <li>
-            <a class="btn btn-sidebar" routerLink="/profile/patient/security"
+            <a
+              class="btn btn-sidebar"
+              [routerLink]="['/profile/patient/security']"
+              routerLinkActive="active"
               >Seguridad</a
             >
           </li>
@@ -42,7 +51,6 @@
 
       <div class="nav-actions">
         <button class="btn btn-danger" (click)="logout()">Cerrar Sesión</button>
-        <button class="btn btn-danger">Eliminar cuenta</button>
       </div>
     </nav>
 

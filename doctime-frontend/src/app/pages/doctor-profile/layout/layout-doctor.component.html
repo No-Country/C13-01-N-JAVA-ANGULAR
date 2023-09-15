@@ -8,7 +8,7 @@
     </div>
     <div class="header__user--img">
       <img
-        src="../../../../assets/images/avatar/avatar.svg"
+        src="assets/images/avatar/avatar.svg"
         alt="doctor"
         class="header__user--img"
       />
@@ -20,7 +20,7 @@
     <div class="sidebar__content">
       <div class="sidebar__logo">
         <img
-          src="../../../../assets/images/logo.svg"
+          src="assets/images/logo.svg"
           alt="logo-doctime"
           class="sidebar__logo--img"
         />
@@ -50,15 +50,6 @@
             >Pacientes</a
           >
           <a
-            routerLink="/dashboard/doctor/schedule"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-            class="menu__links"
-          >
-            <i class="fa-solid fa-calendar-days menu__links--icon"></i>Gestion
-            de horarios</a
-          >
-          <a
             routerLink="/dashboard/doctor/profile"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
@@ -70,7 +61,11 @@
       </div>
     </div>
     <div class="sidebar__bottom">
-      <a class="menu__links sidebar__logout"
+      <a
+        class="menu__links sidebar__logout"
+        (click)="logout()"
+        (keyup.enter)="logout()"
+        aria-hidden="true"
         ><i class="fa-solid fa-right-from-bracket menu__links--icon"></i> Cerrar
         Sessión
       </a>
