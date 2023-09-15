@@ -23,32 +23,39 @@
       <div class="card__container">
         <div
           class="card__content"
-          *ngFor="let item of doctors | filter: search"
+          *ngFor="let doctor of doctors | filter: search"
         >
           <div class="card__header">
             <img
-              src="../../../../assets/images/avatar2.svg"
+              [src]="doctor.image"
               alt="avatar"
               class="card__header--image"
             />
             <div class="card__header--text">
-              <h1 class="card__header--name">{{ item.name }}</h1>
+              <a routerLink="" class="card__header--name">
+                Dr. {{ doctor.name }} {{ doctor.last_name }}
+              </a>
               <span class="card__header--specility">{{
-                item.speciality | titlecase
+                doctor.speciality | titlecase
               }}</span>
             </div>
           </div>
-          <app-tabs
-            [tabs]="tabs"
-            (selectedTabsChange)="tabsChange($event)"
-          ></app-tabs>
           <div class="card__body">
             <div class="card__body--box" *ngIf="activeTabsIndex === 0">
               <i class="fa-solid fa-location-dot"></i>
-              <p class="card__body--street">{{ item.direccion }}</p>
+              <p class="card__body--street">{{ doctor.address }}</p>
             </div>
-            <div class="card__body--box" *ngIf="activeTabsIndex === 1">
-              <p class="card__body--street">Especialidades</p>
+            <div class="card__body--box">
+              <p>Especialidades</p>
+              <p class="card__body--street">
+                {{ doctor.speciality | titlecase }}
+              </p>
+            </div>
+            <div class="card__body--box">
+              <p>Sobre mi</p>
+              <p class="card__body--description">
+                {{ doctor.bio | slice: 0 : 100 }}
+              </p>
             </div>
           </div>
         </div>
