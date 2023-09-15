@@ -1,82 +1,77 @@
-.titulo{
-  display:flexbox;
+.titulo {
+  display: flex;
 }
-.profile{
-  display:flex;
+.profile {
+  display: flex;
   border-radius: 15px 15px 15px 15px;
   font-size: 20px;
   background-color: rgb(255, 255, 255);
   width: 900px;
   height: 900px;
-  margin: 40px  auto;
+  margin: 40px auto;
   padding: 20px;
 
   margin-top: 60px;
   text-align: center;
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 }
 .profile {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-
 .profile-card {
-    flex: 1;
-    margin-right: 20px;
+  flex: 1;
+  margin-right: 20px;
 }
 
 .card {
-    border-radius: 10px;
+  border-radius: 10px;
 
-    padding: 20px;
-    text-align: center;
+  padding: 20px;
+  text-align: center;
 }
 
 .card h2 {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .card img {
-    width: 320px;
-    height: 320px;
-    border-radius: 50%;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
 }
-
 
 .profile-description {
-  display:flex;
-    text-align: justify;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-    border-radius: 10px 10px 10px 10px;
-    justify-content:space-between;
-    margin-top:80px;
-    margin:20px;
-
+  display: flex;
+  text-align: justify;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 10px 10px 10px 10px;
+  justify-content: space-between;
+  margin-top: 80px;
+  margin: 20px;
 }
-.button{
-padding-top:10px;
-padding-bottom:20px;
+.button {
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
-.btn
- {
+.btn {
   width: 200px;
-  height:60px;
+  height: 60px;
   font-size: 2em;
-  margin-top:180px;
-  margin-right:10px;
-  margin-bottom:20px;
+  margin-top: 180px;
+  margin-right: 10px;
+  margin-bottom: 20px;
 }
 body {
-    font-family: Roboto;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
+  font-family: Roboto;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
 }
-h1{
+h1 {
   font-size: 40px;
   color: black;
   text-align: center;

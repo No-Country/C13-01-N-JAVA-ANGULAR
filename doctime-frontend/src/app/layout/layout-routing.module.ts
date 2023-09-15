@@ -12,6 +12,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('../pages/home/home.module').then((m) => m.HomeModule),
       },
+      {
+        path: 'public-perfil-doctor/:id',
+        loadChildren: () =>
+          import(
+            '../pages/public-perfil-doctor/public-perfil-doctor.module'
+          ).then((m) => m.PublicPerfilDoctorModule),
+      },
     ],
   },
   { path: '**', redirectTo: '' },

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PublicPerfilDoctorRoutingModule } from './public-perfil-doctor-routing.module';
-import { PublicPerfilDoctor } from './public-perfil-doctor.component';
+import { PublicPerfilDoctorComponent } from './public-perfil-doctor.component';
 
 @NgModule({
-  declarations: [PublicPerfilDoctor],
+  declarations: [PublicPerfilDoctorComponent],
   imports: [CommonModule, PublicPerfilDoctorRoutingModule],
 })
 export class PublicPerfilDoctorModule {}
