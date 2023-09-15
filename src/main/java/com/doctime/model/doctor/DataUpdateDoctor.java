@@ -1,11 +1,13 @@
 package com.doctime.model.doctor;
 
+import com.doctime.model.specialty.Specialty;
 import com.doctime.model.user.UserEntity;
 
 public record DataUpdateDoctor(
-                Long id,
-                String paymentTypes,
-                double reputation,
-                int totalRatings,
-                UserEntity user) {
+        Long id,
+        String paymentTypes,
+        double reputation,
+        int totalRatings,
+        UserEntity user,
+        Specialty specialty) {
 }

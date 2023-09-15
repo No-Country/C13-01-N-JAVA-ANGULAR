@@ -14,12 +14,14 @@ import com.doctime.model.role.ERole;
 import com.doctime.model.role.RoleEntity;
 import com.doctime.model.schedule.DataCreateSchedule;
 import com.doctime.model.schedule.ScheduleEntity;
+import com.doctime.model.specialty.Specialty;
 import com.doctime.model.timeRange.TimeRange;
 import com.doctime.model.user.UserEntity;
 import com.doctime.model.user.UserRegisterDTO;
 import com.doctime.model.user.UserResponseDTO;
 import com.doctime.repository.DoctorRepository;
 import com.doctime.repository.ScheduleRepository;
+import com.doctime.repository.SpecialtyRepository;
 import com.doctime.repository.TimeRangeRepository;
 import com.doctime.repository.UserRepository;
 import com.doctime.security.jwt.JwtUtils;
@@ -32,6 +34,8 @@ public class DoctorService {
         private PasswordEncoder passwordEncoder;
         @Autowired
         private DoctorRepository doctorRepository;
+        @Autowired
+        private SpecialtyRepository specialtyRepository;
         @Autowired
         private ScheduleRepository scheduleRepository;
         @Autowired
@@ -51,8 +55,10 @@ public class DoctorService {
                                 .password(passwordEncoder.encode(userRegisterDTO.password()))
                                 .role(roleREntity)
                                 .build();
+                Specialty specialty = new Specialty("default");
                 DoctorEntity doctorEntity = DoctorEntity.builder()
                                 .user(userEntity)
+                                .specialty(specialty)
                                 .createdAt(LocalDateTime.now())
                                 .updatedAt(LocalDateTime.now())
                                 .build();
@@ -76,9 +82,12 @@ public class DoctorService {
                 user.setBirthday(dataUpdateDoctor.user().getBirthday());
                 user.setGender(dataUpdateDoctor.user().getGender());
                 user.setDni(dataUpdateDoctor.user().getDni());
+                Specialty specialty = doctor.getSpecialty();
+                specialty.setName(dataUpdateDoctor.specialty().getName());
 
                 doctorRepository.save(doctor);
                 userRepository.save(user);
+                specialtyRepository.save(specialty);
                 return new DataListDoctor(doctor);
         }
 

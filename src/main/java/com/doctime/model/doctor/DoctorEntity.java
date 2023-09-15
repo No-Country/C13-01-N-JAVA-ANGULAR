@@ -2,6 +2,7 @@ package com.doctime.model.doctor;
 
 import java.time.LocalDateTime;
 
+import com.doctime.model.specialty.Specialty;
 import com.doctime.model.user.UserEntity;
 
 import jakarta.persistence.*;
@@ -41,8 +42,8 @@ public class DoctorEntity {
     @JoinColumn(name = "id_user")
     private UserEntity user;
 
-    // @OneToMany(mappedBy = "doctor", fetch = FetchType.EAGER, cascade =
-    // CascadeType.ALL)
-    // private Set<ScheduleEntity> scheduleEntity;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = true)
+    @JoinColumn(name = "id_specialty", nullable = true)
+    private Specialty specialty;
 
 }

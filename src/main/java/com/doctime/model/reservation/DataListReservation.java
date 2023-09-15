@@ -15,7 +15,7 @@ public record DataListReservation(
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime updatedAt,
         Long doctor,
         Long patient) {
-    public DataListReservation(Reservation reservation) {
+    public DataListReservation(ReservationEntity reservation) {
         this(reservation.getId(),
                 reservation.getDate(),
                 reservation.getTitle(),
