@@ -1,10 +1,6 @@
 <main>
   <div class="container container-hero">
-    <img
-      class="bg-hero"
-      src="../../../assets/images/bg-hero.svg"
-      alt="backgroung"
-    />
+    <img class="bg-hero" src="assets/images/bg-hero.svg" alt="backgroung" />
     <div class="hero">
       <div class="hero-left">
         <h1>Encuentra tu especialista y agenda tu cita</h1>
@@ -50,7 +46,9 @@
             quibusdam mollitia porro!
           </p>
         </div>
-        <button class="btn btn-primary">Registrate</button>
+        <button class="btn btn-form" [routerLink]="['/auth/register-doctor']">
+          Registrate
+        </button>
       </div>
     </div>
   </div>

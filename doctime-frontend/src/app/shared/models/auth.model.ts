@@ -9,14 +9,9 @@ export interface UserLogin {
   password: string;
 }
 
-export interface ResLogin {
+export interface ResAuth {
   id: number;
   token: string;
-  message: string;
-}
-export interface ResRegister {
-  id: number;
-  accessToken: string;
   message: string;
 }
 
@@ -27,6 +22,7 @@ export interface User {
 }
 
 export interface DoctorRegister {
+  id?: number;
   name: string;
   lastname: string;
   email: string;
