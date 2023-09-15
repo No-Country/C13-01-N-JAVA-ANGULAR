@@ -1,6 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { DoctorsService } from 'src/app/services/doctors.service';
-
 import { Doctor } from 'src/app/shared/models/doctors.model';
 
 @Component({
@@ -17,21 +16,18 @@ export class DoctorsComponent implements OnInit {
   activeTabsIndex = 0;
 
   private doctorService = inject(DoctorsService);
-
   ngOnInit(): void {
     this.allDoctors();
-    // this.doctors;
   }
-
   allDoctors() {
-    this.doctorService.doctorsList().subscribe((res) => {
-      console.log(res);
+    this.doctorService.getAllDoctors().subscribe((data) => {
+      const docArray = JSON.parse(JSON.stringify(data)).doctors;
+      this.doctors = docArray;
     });
   }
 
   searchSpeciality(search: string) {
     this.search = search;
-    console.log(search);
   }
 
   tabsChange(tab: number) {
