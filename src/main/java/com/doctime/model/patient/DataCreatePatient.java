@@ -1,0 +1,11 @@
+package com.doctime.model.patient;
+
+import java.time.LocalDateTime;
+
+import com.doctime.model.user.UserEntity;
+
+public record DataCreatePatient(
+        LocalDateTime birthday,
+        String address,
+        UserEntity user) {
+}
