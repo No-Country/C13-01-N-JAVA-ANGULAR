@@ -1,4 +1,4 @@
-![image](https://github.com/No-Country/C13-01-N-JAVA-ANGULAR/assets/114030068/04e25098-8a24-4f01-91af-93c9ab3f8a71)<div align="center">
+<div align="center">
   <a href="">
     <img src="./doctime-frontend/src/assets/images/logo.svg" alt="Logo de DocTime" width="200" height="200">
   </a>
