@@ -34,8 +34,6 @@ Presentación: https://youtu.be/ox4CNVf4u4k
 
 DocTime se compromete a brindar una experiencia de atención médica más conveniente y eficiente para todos. Con un diseño amigable y funciones avanzadas, nuestra aplicación busca mejorar la relación médico-paciente y garantizar un acceso más rápido y sencillo a la atención médica de calidad.
 
-Descarga DocTime hoy mismo y descubre cómo puedes tomar el control de tu salud y bienestar, programando citas médicas de manera más inteligente y efectiva. ¡Tu salud merece lo mejor!
-
 ## Diseño
 ### Página de inicio
 ![Página de inicio](https://github.com/No-Country/C13-01-N-JAVA-ANGULAR/assets/114030068/a0d1aaf9-ec56-4ebd-b745-70efa89d8bb3)
