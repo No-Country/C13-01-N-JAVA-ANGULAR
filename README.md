@@ -89,12 +89,12 @@ Descarga DocTime hoy mismo y descubre cómo puedes tomar el control de tu salud 
 [Trello](https://trello.com/): Trello es una herramienta de gestión de proyectos en línea que utiliza tableros visuales para organizar tareas y colaboración en equipo de manera intuitiva.
 
 ## Autores
-**Frontend**
+
+### Frontend
 - [Raul Quispe](https://github.com/RaulQD)
 - [Jassira Fuentes](https://github.com/JassiFuentes)
 - [Andres Betancur](https://github.com/SwatColombia)
 - [Rubén Mantilla](https://github.com/rubenmantilladev)
-
-**Backend**
+### Backend
 - [Angelo Torreblanca](https://github.com/Sleeping02)
 - [Luis Rodriguez](https://github.com/LuisAngel98)
