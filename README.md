@@ -6,7 +6,7 @@
   <h3><em>Programa citas médicas de manera eficiente y sin complicaciones.</em></h3>
   <h4><em>Tu solución para una atención médica más sencilla.</em></h4>
   <p align="center">
-    <a href="https://s9-13-m-express-react.vercel.app/">
+    <a href="https://doctime-frontend.vercel.app/">
         Visita la aplicación 👈
     </a>
   </p>
@@ -15,8 +15,6 @@
 ## Sobre DocTime
 
 DocTime es una innovadora aplicación diseñada para simplificar la programación de citas médicas tanto para pacientes como para médicos. Con acceso desde dispositivos móviles y computadoras, DocTime se ha convertido en la solución perfecta para gestionar tu atención médica de manera eficiente y sin complicaciones.
-
-Web: https://doctime-frontend.vercel.app/
 
 Presentación: https://youtu.be/ox4CNVf4u4k
 
