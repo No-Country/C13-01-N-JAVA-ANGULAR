@@ -35,16 +35,6 @@ DocTime se compromete a brindar una experiencia de atención médica más conven
 
 Descarga DocTime hoy mismo y descubre cómo puedes tomar el control de tu salud y bienestar, programando citas médicas de manera más inteligente y efectiva. ¡Tu salud merece lo mejor!
 
-## Authors
-**Frontend**
-- [Raul Quispe](https://github.com/RaulQD)
-- [Jassira Fuentes](https://github.com/JassiFuentes)
-- [Andres Betancur](https://github.com/SwatColombia)
-- [Rubén Mantilla](https://github.com/rubenmantilladev)
-**Backend**
-- [Angelo Torreblanca](https://github.com/Sleeping02)
-- [Luis Rodriguez](https://github.com/LuisAngel98)
-
 ## Diseño
 ### Página de inicio
 ![Página de inicio](https://github.com/No-Country/C13-01-N-JAVA-ANGULAR/assets/114030068/a0d1aaf9-ec56-4ebd-b745-70efa89d8bb3)
@@ -72,3 +62,37 @@ Descarga DocTime hoy mismo y descubre cómo puedes tomar el control de tu salud 
 ![Perfil público del doctor](https://github.com/No-Country/C13-01-N-JAVA-ANGULAR/assets/114030068/0143316d-52a3-4562-80bc-a2b8d5f2655e)
 ### Formulario de reserva de cita médica
 ![Formulario de reserva de cita médica](https://github.com/No-Country/C13-01-N-JAVA-ANGULAR/assets/114030068/9fd21f6a-0e90-4270-a343-a968f79eccbc)
+
+## Tecnologías empleadas
+### Para el Backend:
+[Java](https://www.java.com/es/): Lenguaje de programación versátil y portátil, utilizado en una amplia variedad de aplicaciones, desde escritorio hasta móviles.
+
+[Spring Boot](https://spring.io/): Marco de desarrollo de aplicaciones Java que simplifica la creación de aplicaciones empresariales y web, reduciendo la configuración.
+
+[MySQL](https://www.mysql.com/): Sistema de gestión de bases de datos relacionales de código abierto conocido por su velocidad y escalabilidad, ampliamente utilizado en aplicaciones web y empresariales.
+
+### Para el Diseño UI:
+[Figma](https://www.figma.com/): Figma es una aplicación basada en navegador para diseñar UI y UX que cuenta con excelentes herramientas de diseño, creación de prototipos y generación de código.
+
+### Para el Frontend:
+[Sass](https://sass-lang.com/guide/): Sass es un preprocesador de CSS que simplifica la escritura de estilos mediante variables, anidación y mixins, lo que facilita la creación de hojas de estilo más eficientes.
+
+[Angular](https://angular.io/): Angular es un framework de desarrollo web de Google para crear aplicaciones de una sola página (SPA) con una arquitectura basada en componentes, lo que agiliza el desarrollo de aplicaciones web complejas.
+
+[TypeScript](https://www.typescriptlang.org/): TypeScript es un lenguaje de programación basado en JavaScript que agrega un sistema de tipos estáticos, mejorando la detección de errores y la mantenibilidad del código en aplicaciones web y proyectos JavaScript.
+
+### Para el despliegue:
+[Digital Ocean](https://www.digitalocean.com/): DigitalOcean es una plataforma de nube que permite implementar rápidamente servidores virtuales y otros recursos en la nube, conocida por su simplicidad y asequibilidad en el alojamiento web.
+[Vercel](https://vercel.com/): Vercel es una plataforma de desarrollo y alojamiento web especializada en aplicaciones web y sitios estáticos, que facilita la implementación continua y la entrega eficiente de contenido web dinámico y estático.
+### Para la organización:
+[Trello](https://trello.com/): Trello es una herramienta de gestión de proyectos en línea que utiliza tableros visuales para organizar tareas y colaboración en equipo de manera intuitiva.
+
+## Autores
+**Frontend**
+- [Raul Quispe](https://github.com/RaulQD)
+- [Jassira Fuentes](https://github.com/JassiFuentes)
+- [Andres Betancur](https://github.com/SwatColombia)
+- [Rubén Mantilla](https://github.com/rubenmantilladev)
+**Backend**
+- [Angelo Torreblanca](https://github.com/Sleeping02)
+- [Luis Rodriguez](https://github.com/LuisAngel98)
