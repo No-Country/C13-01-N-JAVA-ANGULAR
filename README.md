@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="">
+  <a href="https://doctime-frontend.vercel.app/">
     <img src="./doctime-frontend/src/assets/images/logo.svg" alt="Logo de DocTime" width="200" height="200">
   </a>
   <h1>DocTime</h1>
