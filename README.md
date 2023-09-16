@@ -16,7 +16,7 @@
 
 DocTime es una innovadora aplicación diseñada para simplificar la programación de citas médicas tanto para pacientes como para médicos. Con acceso desde dispositivos móviles y computadoras, DocTime se ha convertido en la solución perfecta para gestionar tu atención médica de manera eficiente y sin complicaciones.
 
-Presentación: https://youtu.be/ox4CNVf4u4k
+Video Presentación: https://youtu.be/ox4CNVf4u4k
 
 **Características Principales:**
 
