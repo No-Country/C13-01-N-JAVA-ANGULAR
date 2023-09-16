@@ -16,6 +16,9 @@
 
 DocTime es una innovadora aplicación diseñada para simplificar la programación de citas médicas tanto para pacientes como para médicos. Con acceso desde dispositivos móviles y computadoras, DocTime se ha convertido en la solución perfecta para gestionar tu atención médica de manera eficiente y sin complicaciones.
 
+Web: https://doctime-frontend.vercel.app/
+Presentación: https://youtu.be/ox4CNVf4u4k
+
 **Características Principales:**
 
 1. **Registro de Médicos:** Los médicos pueden crear perfiles detallados que incluyen información sobre su especialidad, experiencia y ubicación de consultorio. También pueden establecer sus horarios de disponibilidad, lo que permite a los pacientes ver cuándo están disponibles para consultas.
